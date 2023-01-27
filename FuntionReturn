@@ -1,0 +1,10 @@
+def tax_calculator(money=0):
+    return money * 0.30
+
+def pay_tax(tax=0):
+    print("thank you for paying", tax)
+
+to_pay = tax_calculator(1000)
+pay_tax(to_pay)
+
+pay_tax(tax_calculator(10000))
