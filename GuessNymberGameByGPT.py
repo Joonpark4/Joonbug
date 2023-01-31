@@ -30,8 +30,10 @@ def number_guessing_game():
                 print(f"AI wins! The number was {number}. AI took {attempts} attempts.")
                 break
             elif ai_guess < number:
+                print("AI's guess is lower.")
                 ai_min = ai_guess + 1
-            else:
+            elif ai_guess > number:
+                print("AI's guess is higher.")
                 ai_max = ai_guess - 1
         user_turn = not user_turn
         attempts += 1
