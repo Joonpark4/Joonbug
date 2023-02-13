@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h3>srcdoc에 HTML문서 작성</h3>
+    <hr>
+    <!-- srcdoc명령어를 활용하면 태그 안에 코드를 작성할 수 있다
+    출력하면 srcdoc에 코딩된 내용이 출력되고 링크에 걸려있는 iframe1.html 
+    내용은 무시된다 -->
+    <iframe src="02_iframe1.html" frameborder="1" width="200" height="80"
+    srcdoc="<html><head></head><body>Hello</body></html>">
+    </iframe>
+</body>
+</html>
+<!-- srcdoc속성이 있으면 src속성은 일반적으로 무시된다 -->
