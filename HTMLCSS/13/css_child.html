@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body > div > h3 {color: red;}
+        body > p {color: green; background-color: yellow;}
+        body > h3 > tel > home {color: blue;}
+    </style>
+</head>
+<body>
+    <div>
+        <h3>Child Selector_1</h3>
+    </div>
+    <p>자식 선택자</p>
+    <h3>
+        <sno>123456</sno><br>
+        <std>김상준</std><br>
+        <tel>
+            <office>02-4567-1010</office>
+            <home>010-1234-5678</home>
+        </tel>
+    </h3>
+</body>
+</html>
+<!-- 가상 엘리먼트 선택자 E::first-line
+E::before E태그의 시작 지점에 생성된 태그를 선택한다
+E::after E태그의 끝 지점에 생성된 태그를 선택한다 -->

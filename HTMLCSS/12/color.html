@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>색 입력 받기</title>
+</head>
+<body>
+    <h3>컬러다이올로그 색 입력</h3>
+    <hr><form action="">
+        <!-- type을 color로 지정하면 색을 고를 수 있다
+        색은 3byte로 나타내며
+        RGB 하나의 색상은 1byte로 00~FF까지 구성된다
+        하나의 색은 RGB(빛의 삼원색)의 합으로 구성되며
+        #PRGGBB(적, 녹, 청)으로 구성된다
+        (참고) F->2WLSQJQ 1111 -> 10진법 15
+        즉 1byte는 0~255로 구성된다 -->
+        색 선택 : <input type="color" value="#00BFFF"
+        onchange="document.body.style.color=this.value">
+        <!-- 위에 작성된 태그를 활용하면 색을 표시하는 블록을 생성,
+        서택한 색을 브라우저의 바탕글자에 적용하는 자바스크립트 코드
+        8비트 범위(0~255)로 16진수(0~FF)로 표기
+        0 이면성분이 없고 FF 255 풀이기 때문에 성분이 꽉 차게 된다 -->
+    </form>
+</body>
+</html>

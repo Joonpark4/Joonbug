@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body{margin: 0; padding: 0; height: 100%;}
+        .header {width: 100%; height: 15%; background: yellow; 
+            display : flex; justify-content : center; align-items : center;}
+        .left {width: 25%; height: 70%; float:left; background: orange;}
+        .section {width: 50%; height: 70%; float: left; background: olivedrab;}
+        .right {width: 25%; height: 70%; float: left; background: skyblue;}
+        .footer {width: 100%; height: 15%; clear: both; background: plum;}
+        img{top: 0; left: 0; width: 100%; height: 200px;}
+        button {width: 90px; height: 70px; font-size: 50px;}
+        .small {font-size: 30px;}
+        td{padding-top: 10px;padding-left: 3px;padding-right: 3px;}
+    </style>
+        <script>
+            function addValue(value) { //애드밸류 함수를 만든다 value값을 하나 받는다
+              var co1 = document.getElementById("text1"); //변수 co1은 text1에 있는 값이 된다
+              if (co1.value.length < 3) { //변수 co1의 글자 숫자가 3개 보다 적을 경우에만
+                co1.value += value; //변수 co1의 값에 value 값을 하나 더하여 이것을 text1 텍스트박스에 넣는다
+              }
+            }
+        </script>
+</head>
+<body onresize="parent.resizeTo(800,600)" onload="parent.resizeTo(800,600)">
+    <header class="header">
+        <h1 style="font-size: 60px">0 - 0</h1>
+    </header>
+    <div class="left"><img src="C:\media\Elvis.png">
+    </div>
+    <section class="section">
+    <form action=""><table align="center" style="text-align: center;" border="0"><br>
+        <tr><td colspan="3">
+    <input type="text" id="text1" maxlength="3" style="color: rgb(27, 8, 8); background-color: rgb(159, 152, 144); font-size: 90px; width: 250px; height: 100px; text-align: center;"><br></td></tr>
+    <tr>
+        <td><button type="button" onclick="addValue('7')">7</button></td>
+        <td><button type="button" onclick="addValue('8')">8</button></td>
+        <td><button type="button" onclick="addValue('9')">9</button></td>
+    </tr>
+    <tr>
+        <td><button type="button" onclick="addValue('4')">4</button></td>
+        <td><button type="button" onclick="addValue('5')">5</button></td>
+        <td><button type="button" onclick="addValue('6')">6</button></td>
+    </tr>
+    <tr>
+        <td><button type="button" onclick="addValue('1')">1</button></td>
+        <td><button type="button" onclick="addValue('2')">2</button></td>
+        <td><button type="button" onclick="addValue('3')">3</button></td>
+    </tr>
+    <tr>
+        <td><button type="button" class="small" onclick="document.getElementById('text1').value=''">취소</button></td>
+        <td><button type="button" onclick="addValue('0')">0</button></td>
+        <td><button type="button" class="small" onclick="document.getElementById('text1').value=''">결정</button></td>
+    </tr>
+    </table></form>
+    </section>
+    <div class="right"><img src="C:\media\Yukihiro_Matsumoto.jpeg">
+    </div>
+    <footer class="footer">footer</footer>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 우선순위3 -->
+    <link rel="stylesheet" href="first_style.css" type="text/css">
+    <!-- 내부에 코딩된 스타일 태그
+    두가지가 중첩되면 내장 코드가 우선됨 -->
+    <style>
+        p{color: blue; font-size: 12px;}
+    </style>
+</head>
+<body>
+    <!-- 얘는 p태그가 아니라 style을 안먹음 -->
+    <h3>p태그에 중첩된 스타일</h3>
+    <p>Hello, students!</p> <!--얘는 위의 p태그 스타일이 먹는다 -->
+    <p style="font-size: 25px;">안녕하세요 교수님!</p> <!--우선순위 1-->
+    <!-- 얘는 위의 p태그와 지금 추가된 스타일이 중첩됨 -->
+</body>
+</html>
+<!-- 스타일 적용의 우선순위
+태그에 적용 가능한 스타일 우선순위(1이 가장 낮음)
+1. 브라우저의 디폴트 스타일 p {color : black; front-size : 16px}
+2. 스타일 시트 파일에 선언된 스타일 p {background:mistrose;}
+3. <style>
+    태그에 선언된 스타일
+</style>
+4. style 속성에 선언된 스타일 <p style="front-size : 25px;">하이</p> -->
+
+<!-- 선택자(selector)
+HTML 태그의 모양을 꾸민 스타일 시트를 선택하는 기능
+여러 유형의 셀렉터
+P태그에 3가지 style 선언되었다
+body내에 p태그에 직접적인 style속성 정의
+head부분에 선언한 style
+외부 stylesgeet 파일에 선언된 style
+내부부터 외부로의 우선순위이기 때문에
+"안녕하세요 교수님"의 경우 3가지가 다 적용되고
+"Hello student"는 2번과 3번만 적용된다 -->
