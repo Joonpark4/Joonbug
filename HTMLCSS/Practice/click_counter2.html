@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.a{
+            position: absolute;
+            top: 50vh;
+            transform: translate(-50%,0%);
+            width: 300px;
+            height: 200px;
+            background-color: antiquewhite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            font-weight: bold;
+            animation: boxmove 2s linear infinite alternate;
+            /*div내 콘텐츠를 상하 중앙에 정렬하려면 align-items: center;를 사용하면 간편하다.
+            하지만 이 경우 반드시 display: flex;를 사용해 주어야 하며, 
+            그렇게 되면 좌우 중앙 정렬값인 text-align : center; 속성값을 쓰지 못한다.
+            대신 다른 좌우 중앙 정렬값인 justify-content: center; 속성값을 동시에 사용해주면 잘 작동한다. */
+        }
+        @keyframes boxmove{
+            from {left: 0%;}
+            to{left: 100%;}
+        }
+        div.b{
+            position: absolute;
+            left: 50vw;
+            top: 20vh;
+            transform: translate(-50%,-50%);
+        }
+        input{
+            color: rgb(27, 8, 8); 
+            background-color: rgb(159, 152, 144); 
+            font-size: 90px; 
+            width: 250px; 
+            height: 100px; 
+            text-align: center;
+        }
+    </style>
+	<script>
+		function increment() {
+			var textbox = document.getElementById("textbox");
+			var currentValue = parseInt(textbox.value);
+			textbox.value = currentValue + 1;
+		}
+	</script>
+</head>
+<body>
+    <div class="a" onclick="increment()">click here</div>
+    <div class="b"><input type="text" id="textbox" value="0"></div>
+</body>
+</html>
