@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #resize {
+            position: absolute;
+            left: 200px;
+            top: 200px;
+            height: 150px;
+            width: 100px;
+            -webkit-transition: width 1s, height 3s;
+            transition: width 1s, height 3s;
+        }
+        #resize:hover { width: 0px; height: 150px; }
+    </style>
+       
+</head>
+<body>
+    <div style="background: red;" id="resize"></div>
+</body>
+</html>

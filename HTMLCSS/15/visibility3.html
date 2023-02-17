@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .v1{
+            visibility: hidden;
+            border: 1px dotted red;
+        }
+        .v2{
+            visibility: visible;
+            border: 1px dotted red;
+        }
+        .v3{
+            display: none;
+            border: 1px dotted red;
+        }
+        .xy:checked + div + div{
+            visibility: visible;
+            display: inline;
+        }
+    </style>
+</head>
+<body> <input type="checkbox" class="xy">
+    <div class="v1">
+        <img src="c:\media\\pic1.jpg" alt="">
+    </div>
+    <div class="v2">
+        <img src="c:\media\\pic1.jpg" alt="">
+    </div>
+    <div class="v3">
+        <img src="c:\media\\pic1.jpg" alt="">
+    </div>
+    <div class="v2">
+        <img src="c:\media\\pic1.jpg" alt="">
+    </div>
+</body>
+</html>

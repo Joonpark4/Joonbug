@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>한장의 카드는 무엇일까요??</title>
+    <style>
+        div{position: absolute;}
+        img{position: absolute;}
+        #spadeA { z-index: -1; left: 10px; top: 20px;}
+        #spade2 { z-index: 2; left: 40px; top: 30px; display: none;}
+        #spade3 { z-index: 3; left: 80px; top: 40px;}
+        #spade7 { z-index: 7; left: 120px; top: 50px;}
+        #good { z-index: 10; left: 150px; top: 130px; display: none;}
+        div:hover #spadeA{
+            content: url("c:\media\\spade-2.png")
+        }
+        div:hover #spade2{
+            content: url("c:\media\\spade-A.png");
+            display: block;
+        }
+        div:hover #good{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h3>한장의 카드는?</h3><hr>
+    <div>
+        <img src="c:\media\spade-A.png" alt="스페이드A" id="spadeA" width="100" height="140">
+        <img src="c:\media\spade-2.png" alt="스페이드2" id="spade2" width="100" height="140">
+        <img src="c:\media\spade-3.png" alt="스페이드3" id="spade3" width="100" height="140">
+        <img src="c:\media\spade-7.png" alt="스페이드7" id="spade7" width="100" height="140">
+        <img src="c:\media\good.png" alt="" id="good" width="100" height="100">
+    </div>
+    <!-- 문제 - 1, 3, 7만 보이다가 2, 1, 3, 7로 카드가 바뀌어 보여주기 -->
+</body>
+</html>

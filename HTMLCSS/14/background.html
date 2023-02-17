@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            background-color: skyblue;
+            background-size: 100px 100px;
+            background: url('C:\media\\spongebob.png');
+            /* 경로에 url을 사용할때 C:\media\\spongebob.png 이렇게 슬래시를 두개 썼을 경우 연결될 가능성이 있다. 고대의 문법 */
+            width: 100px;
+            height: 100px;
+            background-repeat: repeat-y;
+            background-position: center center; /*배경 이미지 기본 위치, x축과 y축 모두 센터*/
+        }
+        /* div 태그 위치에 스타일 태그 추가 */
+        div {
+            /* 200x200 크기의 보라색 배경 생성 */
+            width: 200px;
+            height: 200px;
+            color: blueviolet;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h3>div 박스에 배경 꾸미기</h3><hr>
+    <div>SpongeBob is an over-optimistix
+        sponge that annoys other characters
+    </div>
+</body>
+</html>
+<!-- 둥근 모서리 테두리 만들기 - border-radius
+border-radius: 50px
+border-radius: 0px 20px 40px 60px; 시계 방향 11시, 2시, 4시, 8시 순서 적용 -->
