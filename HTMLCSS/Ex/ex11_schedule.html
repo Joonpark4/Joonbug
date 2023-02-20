@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        table, td, th{
+            border: 1px solid #aaaaaa;
+            border-collapse: collapse;
+            font-size: 12px;
+            color: #444444;
+            font-family: '돋움';
+            background-color: white;
+            margin: 5px;
+        }
+        th{ /*표 최상단, 요일 표기*/
+            font-weight: bold;
+            background-color: #f8f9f2;
+            color: #7a7e6f;
+            margin-top: 15px;
+            border-top: 2px solid #aaaaaa;
+            text-align: center;
+            height: 20px;
+        }
+        td{ /*표 내용, 일자 표기*/
+            text-align: left;
+            width: 76px;
+            height: 60px;
+            padding: 5px;
+            vertical-align: top;
+        }
+        .holiday{
+            color: red;
+        }
+        .saturday{
+            color: blue;
+        }
+        #date{
+            font-size: 14px;
+            margin-top: 10px;
+            margin-left: 210px;
+            list-style: none;
+        }
+        #date>li{
+            float: left;
+        }
+        hr{
+            position: absolute;
+            float: left;
+            left: 0;
+            top: 55px;
+            border: 2px solid;
+        }
+        hr.ab{
+            width: 150px;
+            border-color: #66bb6a;
+            z-index: 2;
+        }
+        hr.cd{
+            width: 90%;
+            border-color: #cfd8dc;
+        }
+        ul#date::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <h1>학사 일정</h1>
+    <hr class="ab"><hr class="cd">
+    <h3><img src="c:\img/sched_title.gif" alt=""></h3>
+    <ul id="date">
+        <li><img src="c:\image/left_arrow.gif" alt=""></li>
+        <li>2017년 6월</li>
+        <li><img src="c:\image/right_arrow.gif" alt=""></li>
+    </ul>
+    <table>
+        <tr>
+            <th class="holiday">일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th class="saturday">토</th>
+        </tr>
+        <tr>
+            <td class="holiday"></td><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td class="saturday">5</td>
+        </tr>
+        <tr>
+            <td class="holiday">6</td><td></td><td>8</td><td>9<br>특강</td><td>10</td><td>11</td><td class="saturday">12</td>
+        </tr>
+        <tr>
+            <td class="holiday">13</td><td>14<br>기말고사</td><td>15<br>기말고사</td><td>16<br>기말고사</td><td>17<br>기말고사</td><td>18<br>기말고사</td><td class="saturday">19</td>
+        </tr>
+        <tr>
+            <td class="holiday">20</td><td>21<br>하계방학</td><td>22</td><td>23</td><td>24</td><td>25</td><td class="saturday">26</td>
+        </tr>
+        <tr>
+            <td class="holiday">27</td><td>28</td><td>29<br>MT</td><td>30<br>MT</td><td>31</td><td></td><td class="saturday"></td>
+        </tr>
+    </table>
+</body>
+</html>

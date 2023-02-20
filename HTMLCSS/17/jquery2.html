@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="..\\jquery-3.6.3.min.js"></script>
+    <script>
+        $(document).ready(function(){ //제이쿼리 시작 알림
+            $(".hide").click(function(){ //제이쿼리 사용시 간략히 가능
+                $("p").hide();
+            });
+            $(".show").click(function(){ //제이쿼리 사용시 간략히 가능
+                $("p").show();
+            });
+            $(".red").click(function(){ //제이쿼리 사용시 간략히 가능
+                $("p").css("color", "red");
+            });
+            $(".blue").click(function(){ //제이쿼리 사용시 간략히 가능
+                $("p").css("color", "blue");
+            });
+            $(".plus").click(function(){ //제이쿼리 사용시 간략히 가능
+            var $p = $('<p>문서 준비 이벤트는 여러개의 이벤트를 정의할 수 있습니다</p>');
+            var p = document.createElement('p');
+            var text = document.createElement('Hello');
+            $p.appendTo($('div'));
+            // p.appendChild(text); //뭐에 쓰는건지 모르겠음
+            // $(".plus").append($p); // 얘도
+            // document.getElementsByClassName('plus1').appendChild(p); // 아마 id를 부여하는것 같았는데 그것도 아님
+            });
+            $(".minus").click(function(){
+                $('p').remove();
+            })
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <p>문서 준비 이벤트는 여러개의 이벤트를 정의할 수 있습니다</p>
+    </div>
+    <button class="hide">메세지 숨기기</button> 
+    <button class="show">메세지 보기</button> 
+    <button class="red">빨간색</button> 
+    <button class="blue">파란색</button> 
+    <button class="plus">더하기</button> 
+    <button class="minus">삭제</button> 
+</body>
+</html>

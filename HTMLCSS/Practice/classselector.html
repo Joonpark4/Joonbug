@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            position: absolute;
+            width: 100px;
+            height: 200px;
+            border: 1px solid green;
+            top: 50vh;
+            transform: translate(-50%,-50%);
+            background: aqua;
+            backface-visibility: hidden; /*front와 back카드 모두 뒷면일때 숨기기*/
+            transition: 1s;
+            perspective: 400px; /*3d효과, 숫자가 작아질수록 3d효과를 가까이서 보는 효과 발생*/
+        }
+        .mr1{
+            left: 25%;
+        }
+        .mr2{
+            left: 50%;
+            background: black;
+        }
+        .mr3{
+            left: 75%;
+            background: yellow
+        }
+        .bx1{
+            transform: rotateY(0deg);
+        }
+        .bx2{
+            background: purple;
+            transform: rotateY(-180deg);
+        }
+        .con{
+            perspective: 400px;
+        }
+        .con:hover .bx1{
+            visibility: hidden;
+            transform: rotateY(180deg);
+        }
+        .con:hover .bx2{
+            transform: rotateY(0deg);/*y축을 기준으로 0도 까지회전*/
+        }
+    </style>
+</head>
+<body>
+    <div class="con mr1">
+    <div class="mr1 box bx1"></div>
+    <div class="mr1 box bx2"></div>
+    </div>
+    <div class="con mr2">
+    <div class="mr2 box bx1"></div>
+    <div class="mr2 box bx2"></div>
+    </div>
+    <div class="con mr3">
+    <div class="mr3 box bx1"></div>
+    <div class="mr3 box bx2"></div>
+    </div>
+</body>
+</html>

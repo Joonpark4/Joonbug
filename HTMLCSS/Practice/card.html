@@ -10,7 +10,6 @@
     .container{
   width: 200px;
   height: 300px;
-  margin: auto;
   position: absolute;
   cursor: pointer;
   perspective: 400px; /*3d효과, 숫자가 작아질수록 3d효과를 가까이서 보는 효과 발생*/
@@ -40,19 +39,17 @@
   position: absolute;
   background: url('c:\media\\spade-A.png');
   background-size: 200px 300px;
-  transform: rotateY(0deg);
+  transform: rotateY(0deg); /*앞면 : 원래 0도여야함*/
 }
 .back{
   position: absolute;
   background: url('c:\media\\spade-2.png');
   background-size: 200px 300px;
-  transform: rotateY(-180deg);
+  transform: rotateY(-180deg); /*뒷면 : 원래 -180도여야함 (숨김처리)*/
 }
-
 .container:hover .front{
   transform: rotateY(180deg); /*y축을 기준으로 180도까지회전*/
 }
-
 .container:hover .back{
   transform: rotateY(0deg);/*y축을 기준으로 0도 까지회전*/
 }
