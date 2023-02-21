@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 방법2 : classToggle을 사용해 클래스를 붙였다 떼는 방식으로 토글키 만들기 */
+        .a1{
+            color: red;
+            border: 2px solid blue;
+        }
+    </style>
+    <script src="..\jquery-3.6.3.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#b1").click(function () {
+            $('body>*').toggleClass('a1')
+            });
+            // 방법 1 : 변수 a를 사용하여 0과 1값으로 토글키 만들기
+            // $a=1;
+            // $("#b1").click(function () {
+            //     if($a==1){
+            //         $(".a1").css('color', 'red');
+            //         $(".a1").css('border','2px solid blue')
+            //         $a=0;
+            //     } else {
+            //         $(".a1").css('color', 'black');
+            //         $(".a1").css('border','none')
+            //         $a=1;
+            //     }
+            // });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>HTML</h1>
+    <h3>CSS</h3>
+    <h4>자바스크립트</h4>
+    <h5>제이쿼리</h5>
+    <button id="b1">CSS 적용/해제</button>
+</body>
+
+</html>

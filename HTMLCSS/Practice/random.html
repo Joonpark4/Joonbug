@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function but() {
+            var ax = Math.random();
+            console.log(ax)
+            aa.value = ax;
+            // id.value = 값     //이러면 해당하는 id 텍스트에 ax값을 집어넣는다
+            // class.value = 값  // 이러면 동작하지 않는다
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="aa" class="ab"> <button onclick="but()">안녕하세요</button>
+</body>
+</html>

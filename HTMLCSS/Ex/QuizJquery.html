@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="..\jquery-3.6.3.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".answer1").css("visibility","hidden"); //시작하자마자 answer1과 answer2 클래스를 갖는 태그를 숨김
+            $(".answer2").css("visibility","hidden");
+            $(".question1").mouseenter(function(){ // class question1을 클릭하면 class answer1 태그를 보여줌
+                $(".answer1").css("visibility","visible");
+            });
+            $(".question2").mouseenter(function(){ // class question2를 클릭하면 class answer2 태그를 보여줌
+                $(".answer2").css("visibility","visible");
+            });
+            $(".answer1").mouseleave(function(){
+                $(this).css("visibility","hidden");
+            });
+            $(".answer2").mouseleave(function(){
+                $(this).css("visibility","hidden");
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>질문1 : 대한민국의 수도는 어디입니까?</h2>
+    <p class="question1">[정답보기]</p>
+    <p class="answer1">대한민국의 수도는 서울입니다.</p>
+    <h2>질문1 : 대한민국의 국보 1호는 무엇입니까?</h2>
+    <p class="question2">[정답보기]</p>
+    <p class="answer2">대한민국의 국보 1호는 숭례문입니다.</p>
+</body>
+</html>

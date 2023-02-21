@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px; padding: 0px;
+        }
+        div {
+            border: 1px solid;
+            width: 90%;
+            height: 460px;
+            position: absolute;
+            left: 50vw;
+            top: 50vh;
+            transform: translate(-50%,-50%);
+        }
+        img{
+            position: relative;
+            height: 150px;
+        }
+        /* img#a1{
+            top:0;
+        }
+        img#a2{
+            top:150px;
+        }
+        img#a3{
+            top:300px;
+        } */
+    </style>
+    <script src="..\jquery-3.6.3.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('button').click(function(){
+                $('div').css({
+                    'text-align': 'right'
+                });
+            });
+            $('#a1').click(function(){
+                $(this).animate({
+                    left:"-=1000"
+                }, 1000)
+                
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="start">초기화 상태</button>
+    <div>
+        <img src="c:\media\\mio.png" id="a1"><br>
+        <img src="c:\media\\mio.png" id="a2"><br>
+        <img src="c:\media\\mio.png" id="a3">
+    </div>
+</body>
+</html>

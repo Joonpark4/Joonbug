@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="..\\jquery-3.6.3.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        // $('.a').mouseover(function () {
+        $('.b').slideDown(1500);
+        // });
+        // $('.a').mouseleave(function () {
+        $('.b').slideUp(1500);
+        // });
+    });
+</script>
+<style>
+    /* .a {
+        display: none;
+        height: 100px;
+        background-color: red;
+        text-align: center;
+        color: white;
+    } */
+
+    .b {
+        display: none;
+        height: 100px;
+        background-color: #bbdefb;
+        text-align: center;
+    }
+</style>
+</head>
+
+<body>
+    <p class="a" style="text-align: center;" background-color>공지사항</p>
+    <div class="b">공지사항</div>
+</body>
+</html>

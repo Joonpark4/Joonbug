@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0px; padding: 0px;
+            font-size: 12px;
+            font-family: '돋움';
+            color: #444444;
+        }
+        ul{
+            list-style: none;
+        }
+        h2#login_title{
+            font-size: 50px;
+            width: 585px;
+            border: 5px solid #e6e2d7;
+            padding: 10px; margin: 50px;
+        }
+        #login_box{
+            width: 610px;
+            height: 283px;
+            margin-top: 20px;
+            margin-left: 50px;
+            border: 2px solid #cccccc;
+            border-radius: 20px;
+        }
+        ul#login>li{
+            float: left;
+        }
+        ul#input_button>li{
+            float: left;
+            position: relative;
+            left: -50px;
+            top: 20px;
+            text-align: right;
+        }
+        ul#input_button>li input{
+            width: 150px;
+            margin: 3px 0px;
+        }
+        img[alt="로그인"]{
+            position: relative;
+            left: 50px;
+            top: 10px;
+        }
+        #login_btn img{
+            position: relative;
+            top: -4px;
+            left: 3px;
+        }
+        #auto_login{
+            position: relative;
+            top: 25px;
+            left: 10px;
+            margin: 50px;
+        }
+        #join_find{
+            list-style-type: disc;
+            margin-left: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h2 id="login_title">로그인</h2>
+    <div id="login_box">
+        <img src="c:\img\login_img.gif" alt="로그인" id="member_login">
+        <ul id="login">
+            <li id="left">
+                <img src="c:\img\login_img02.gif" alt="" id="key">
+            </li><!-- left -->
+            <li id="right">
+                <ul id="input_button">
+                    <li id="id_pass">
+                        <ul>
+                            <li>
+                                <span>아 이 디</span>
+                                <input type="text">
+                            </li><!-- id -->
+                            <li id="pass">
+                                <span>비밀번호</span>
+                                <input type="password">
+                            </li><!-- pass -->
+                        </ul>
+                    </li><!-- id_pass -->
+                    <li id="login_btn">
+                        <img src="c:\img\btn_login.gif" alt="">
+                    </li>
+                </ul><!-- input_button -->
+
+                <div id="auto_login">
+                    <input type="checkbox"> 자동 로그인
+                </div>
+
+                <ul id="join_find">
+                    <li>아직 회원이 아니세요?</li>
+                    <li>아이디 또는 비밀번호를 잊으셨나요?</li>
+                </ul>
+            </li><!-- right -->
+        </ul><!-- login -->
+    </div><!-- login_box -->
+</body>
+</html>

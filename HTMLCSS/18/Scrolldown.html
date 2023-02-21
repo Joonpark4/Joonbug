@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            padding: 0px; margin: 0px;
+        }
+        div{
+            overflow: hidden;
+        }
+        p#a1 {
+            background: beige;
+            color: blue;
+            text-align: center;
+            font-weight: bold;
+            font-size: large;
+            border: 2px solid brown;
+            z-index: 5;
+            /* margin-bottom: 0px; */
+        }
+        p#a2 {
+            position: relative;
+            z-index: -1;
+            background: yellow;
+            color: red;
+            text-align: center;
+            padding: 20px;
+            /* margin-top: 0px; */
+            opacity: 0.1;
+            animation: scrolling 2s linear infinite alternate;
+        }
+        @keyframes scrolling{
+            from { top: -150px;}
+            to { 
+                top:0;
+                opacity: 1.0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p id="a1">[오늘의 공지사항]</p>
+        <p id="a2">오늘은 jQuery를 학습했습니다 <br>
+            예제를 작성한 후 실행해보세요</p>
+    </div>
+</body>
+</html>
+<!-- slidedown() 과 slideup(), fadeTo()를 사용하여 다시 만들기-->

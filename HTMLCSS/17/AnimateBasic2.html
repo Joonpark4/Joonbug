@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="..\jquery-3.6.3.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#box1').css({
+                width: 50, 
+                height: 100,
+                background: 'red',
+                position: 'absolute',
+                left: 0,
+                top: 0,
+                opacity: 0.0
+            })
+            .animate({
+                width: 1900,
+                opacity: 1
+            }, 1500);
+            $('#box2').css({
+                width: 50,
+                height: 100,
+                background: 'red',
+                position: 'absolute',
+                left: 0,
+                top: 100,
+                opacity: 0.0
+            }).delay(500)
+            .animate({
+                width: 1900,
+                opacity: 1
+            }, 1500);
+            $('#box3').css({
+                width: 50,
+                height: 100,
+                background: 'red',
+                position: 'absolute',
+                left: 0,
+                top: 200,
+                opacity: 0.0
+            }).delay(1000)
+            .animate({
+                width: 1900,
+                opacity: 1
+            }, 1500);
+            $('#box4').css({
+                width: 50,
+                height: 100,
+                background: 'red',
+                position: 'absolute',
+                left: 0,
+                top: 300,
+                opacity: 0.0
+            }).delay(1500)
+            .animate({
+                width: 1900,
+                opacity: 1
+            }, 1500);
+            $('#box5').css({
+                width: 50,
+                height: 100,
+                background: 'red',
+                position: 'absolute',
+                left: 0,
+                top: 400,
+                opacity: 0.0
+            }).delay(2000)
+            .animate({
+                width: 1900,
+                opacity: 1
+            }, 1500);
+            $('#box6').css({
+                width: 50,
+                height: 100,
+                background: 'red',
+                position: 'absolute',
+                left: 0,
+                top: 500,
+                opacity: 0.0
+            }).delay(2500)
+            .animate({
+                width: 1900,
+                opacity: 1
+            }, 1500);
+        });
+    </script>
+</head>
+
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+    <div id="box4"></div>
+    <div id="box5"></div>
+    <div id="box6"></div>
+</body>
+
+</html>
