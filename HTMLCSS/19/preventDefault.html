@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML</title>
+    <script src="..\jquery-3.6.3.min.js"></script>
+    <script>
+        // 이벤트를 연결합니다
+        $(document).ready(function(){
+            // 이벤트 연결
+            $('a').click(function(event){
+                // 출력
+                alert('click');
+
+                // 기본 이벤트를 제거
+                // event.prevenDefault(); //이 경우 이벤트가 사라지지 않음
+                // return false // 이 경우 기본적인 이벤트가 사라진다
+            });
+        });
+    </script>
+    <style>
+    </style>
+</head>
+<body>
+    <a href="http://hanb.co.kr">Hanbit Academy</a>
+</body>
+</html>

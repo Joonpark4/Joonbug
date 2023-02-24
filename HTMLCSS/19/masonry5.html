@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML</title>
+    <!-- <script src="..\jquery-3.6.3.min.js"></script>
+    <script src="..\masonry.pkgd.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script>
+        var files = ["c:\media/apple.png", "c:\media/banana.png", "c:\media/mango.png"];
+        //이벤트를 연결한다
+        $(document).ready(function(){
+            for (var i=0; i<100; i++){
+                // 랜덤한 이미지 요소 생성 후 class='box' 추가 후 랜덤 높이 설정 후 body요소에 삽입
+                $('<img src=' + files[Math.floor(Math.random() * 3)] + '>').addClass('box').css({
+                   height: Math.floor(Math.random()*100)+50 
+                }).appendTo('body');
+            }
+            // Masonry플로그인을 적용한다
+            $('body').masonry({
+                columnWidth:110
+                //body의 masonry 함수를 이용해 열 넓이를 110으로 지정
+            });
+        });
+    </script>
+    <style>
+        *{margin: 0; padding: 0;}
+        .box{
+            background: black;
+            margin: 5px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML</title>
+    <script src="..\jquery-3.6.3.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //10 회 반복
+            for(var i=0; i<10; i++){
+                //문서 객체 생성
+                //해당 태그 내용을 appendTo를 활용해 body태그 위에 오게 함
+                //body태그 안에 h1태그를 생성하고 그 안에 값을 입력한 것과 동일
+                $('<h1>create Document Object + ' + i + '</hr>').css({
+                    backgroundColor:'black',
+                    color:'red'
+                }).appendTo('body'); //$(객체).appendTo(대상) 객체를 대상의 뒷부분에 추가
+            }
+        });
+    </script>
+    <style>
+    </style></head>
+<body></body></html>
+<!-- 대상 내부에 추가한다
+$(객체).prependTo(대상) : 객체를 대상의 앞 부분에 추가
+$(객체).appendTo(대상) : 객체를 대상의 뒷 부분에 추가
+    대상 외부에 추가
+$(객체).beforeTo(대상) : 객체를 대상의 앞에 추가
+$(객체).afterTo(대상) : 객체를 대상의 뒤에 추가
+    무한 스크롤
+스크롤을 맨 아래까지 내리면 자동으로 데이터를 추가해주는 기능
+페이스북, 핀터레스트, 쿠팡 등에서 사용됨
+무한 스크롤 이벤트가 발생하면 다음 조건을 확인하고 데이터 추가
+전체 문서의 높이 = 스크롤 높이 + 브라우저 창의 높이
+    append : 선택된 요소의 마지막에 새로운 요소나 콘텐츠를 추가한다
+    appendTo : 선택된 요소를 해당 요소의 마지막에 추가한다
+body쪽에서도 작성가능 -->

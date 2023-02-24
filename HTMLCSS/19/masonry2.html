@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML</title>
+    <!-- <script src="..\jquery-3.6.3.min.js"></script>
+    <script src="..\masonry.pkgd.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script>
+        //이벤트를 연결한다
+        $(document).ready(function(){
+        //문서 객체를 생성한다.
+            for(var i=0; i<100; i++){
+                //jQuery와 appendTo를 활용해 body태그 안에 이미지 객체 생성
+                $('<div><img src="c:\media\\apple.png"></div><div><img src="c:\media\\banana.png"></div><div><img src="c:\media\\mango.png"></div>').addClass('box').css({
+                    width:100,  
+                    //random 메소드를 활용해 임의의 높이를 갖는 100개 박스 생성
+                    height:Math.floor(Math.random()*100)+50
+                }).appendTo('body');
+                //세로 랜덤 함수 0~99+50을 하면 51에서 150까지 세로가 랜덤으로 지정됨
+            }
+            $('body').masonry({
+                columnWidth:110
+                //body의 masonry 함수를 이용해 열 넓이를 110으로 지정
+            });
+        });
+    </script>
+    <style>
+        *{margin:0; padding:0;}
+        .box{
+            background: black;
+            margin: 5px;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML</title>
+    <script src="..\jquery-3.6.3.min.js"></script>
+    <script>
+        //객체를 클릭하면 move 명령이 수행되고
+        function move(object, speed){
+        //객체를 정지시킨 후 animate 메소드에 의해 시작점에서 좌측으로 500px만큼 지정된 속도로 이동함
+            $(object).stop().animate({left:-500},speed);
+        }
+        //초기화 상태라는 버튼을 클릭하면, 객체를 정지시킨 후 animate 메소드에 의해 원점 복귀
+        function back(){
+            $('.moving img').stop().animate({left:0})
+        }
+    </script>
+    <style>
+        .moving{
+            border: solid 1px #000000;
+            margin: 20px auto 0 auto;
+            text-align: right;
+            /* 이미지 위치를 x축에서 650px 만큼 우측으로 이동시킴 */
+            width: 650px;
+        }
+        .moving img{
+            cursor: pointer;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="init">
+        <button type="button" onclick="back('.moving img')">초기화 상태</button><br>
+        <!-- 버튼 클릭 시 moving 클래스 내의 img 요소들을 인수로 back 함수 호출
+        onclick="back(.moving img)" 에서 ()안의 '.moving img' 문구는 필요 없음 -->
+    </div>
+    <div class="moving">
+        <!-- 각 이미지 클릭 시 자기자신 객체와 속도 값을 인수로 move함수 호출 -->
+        <img src="c:\media\\mio.png" alt="" onclick="move(this,6000)"><br>
+        <img src="c:\media\\mio.png" alt="" onclick="move(this,3000)"><br>
+        <img src="c:\media\\mio.png" alt="" onclick="move(this,1000)"><br>
+    </div>
+</body>
+</html>

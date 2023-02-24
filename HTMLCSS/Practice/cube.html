@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HTML</title>
+    <script src="..\jquery-3.6.3.min.js"></script>
+    <script>
+    </script>
+    <style>
+        .cube {
+            /* 큐브태그를 정 중앙에 배치 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            perspective: 1000px; /* 3d시각효과의 정도를 결정함 */
+        }
+        .flip{
+            width: 200px; height: 200px;
+            transform-style: preserve-3d;
+            transition: 5s ease-out;
+            font-size: 30px;
+            text-align: center;
+            line-height: 200px;
+        }
+        .flip:hover{
+            /* scale 사용시 앞 뒷면은 커지는데, 상하좌우는 커지지 않음. */
+            transform: rotateY(720deg) rotateX(720deg) scale3d(300%,300%,300%);
+        }
+        #a1 {
+            background: yellow;
+            width: 200px; height: 200px;
+            transform: translateZ(100px);
+        }
+        #a2 {
+            background-color: blue;
+            width: 200px; height: 200px;
+            transform: rotateX(90deg) translateZ(300px);
+        }
+        #a3 {
+            background-color: red;
+            width: 200px; height: 200px;
+            transform: rotateX(-90deg) translateZ(-300px);
+        }
+        #a4 {
+            background: green;
+            width: 200px; height: 200px;
+            transform: translateZ(-100px) translateY(-600px) rotateY(180deg);
+        }
+        #a5 {
+            background-color: violet;
+            width: 200px; height: 200px;
+            transform: rotateY(-90deg) translateY(-800px) translateZ(100px);
+        }
+        #a6 {
+            background-color: orange;
+            width: 200px; height: 200px;
+            transform: rotateY(90deg) translateY(-1000px) translateZ(100px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cube">
+        <div class="flip" onclick="coco()">
+            <div id="a1">front</div>
+            <div id="a2">top</div>
+            <div id="a3">bottom</div>
+            <div id="a4">back</div>
+            <div id="a5">left</div>
+            <div id="a6">right</div>
+        </div>
+    </div>
+</body>
+
+</html>

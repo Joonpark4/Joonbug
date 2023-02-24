@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HTML</title>
+    <script src="..\jquery-3.6.3.min.js"></script>
+    <script>
+    </script>
+    <style>
+        .cube {
+            /* 큐브태그를 정 중앙에 배치 */
+            perspective: 1000px; /* 3d시각효과의 정도를 결정함 */
+        }
+        .flip{
+            width: 200px; height: 200px;
+            transform-style: preserve-3d;
+            font-size: 30px;
+            text-align: center;
+            line-height: 200px;
+            animation: spinning 5s linear infinite;
+        }
+        #a1 {
+            background: yellow;
+            width: 200px; height: 200px;
+            transform: translateZ(100px);
+        }
+        #a2 {
+            background-color: blue;
+            width: 200px; height: 200px;
+            transform: rotateX(90deg) translateZ(300px);
+        }
+        #a3 {
+            background-color: red;
+            width: 200px; height: 200px;
+            transform: rotateX(-90deg) translateZ(-300px);
+        }
+        #a4 {
+            background: green;
+            width: 200px; height: 200px;
+            transform: translateZ(-100px) translateY(-600px) rotateY(180deg);
+        }
+        #a5 {
+            background-color: violet;
+            width: 200px; height: 200px;
+            transform: rotateY(-90deg) translateY(-800px) translateZ(100px);
+        }
+        #a6 {
+            background-color: orange;
+            width: 200px; height: 200px;
+            transform: rotateY(90deg) translateY(-1000px) translateZ(100px);
+        }
+        @keyframes spinning{
+            from { transform: rotateX(0deg) rotateY(0deg); }
+            to { transform: rotateX(720deg) rotateY(720deg); }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cube">
+        <div class="flip" onclick="coco()">
+            <div id="a1">front</div>
+            <div id="a2">top</div>
+            <div id="a3">bottom</div>
+            <div id="a4">back</div>
+            <div id="a5">left</div>
+            <div id="a6">right</div>
+        </div>
+    </div>
+</body>
+
+</html>

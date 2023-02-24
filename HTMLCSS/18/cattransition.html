@@ -18,34 +18,35 @@
             left: 50vw;
             top: 50vh;
             transform: translate(-50%,-50%);
+            text-align: left;
         }
         img{
             position: relative;
             height: 150px;
         }
-        /* img#a1{
-            top:0;
-        }
-        img#a2{
-            top:150px;
-        }
-        img#a3{
-            top:300px;
-        } */
     </style>
     <script src="..\jquery-3.6.3.min.js"></script>
     <script>
         $(document).ready(function(){
             $('button').click(function(){
-                $('div').css({
-                    'text-align': 'right'
+                $('img').stop().css({
+                    left: '0'
                 });
             });
             $('#a1').click(function(){
-                $(this).animate({
-                    left:"-=1000"
-                }, 1000)
-                
+                $(this).stop().animate({
+                left: '85%'
+            }, 1500)
+            });
+            $('#a2').click(function(){
+                $(this).stop().animate({
+                left: '85%'
+            }, 1500)
+            });
+            $('#a3').click(function(){
+                $(this).stop().animate({
+                left: '85%'
+            }, 1500)
             });
         });
     </script>
