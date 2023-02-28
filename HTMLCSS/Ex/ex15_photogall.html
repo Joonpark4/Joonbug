@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HTML</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #eeeeee;
+            font-family: '돋움';
+            font-size: 12px;
+            color: #666666;
+        }
+
+        header {
+            width: 800px;
+            height: 40px;
+            background: #dddddd;
+        }
+
+        #logo {
+            font: 16px #3e2b23;
+            padding: 10px 0px 0px 30px;
+            float: left;
+        }
+
+        #top_menu {
+            padding: 10px 10px 0px 0px;
+            float: right;
+        }
+
+        nav {
+            width: 150px;
+            height: 600px;
+            background: #343333;
+            color: #e2e2e2;
+            float: left;
+        }
+
+        nav>h2 {
+            font-weight: normal;
+            padding: 10px 0px 0px 30px;
+        }
+
+        nav>ul {
+            font-size: 14px;
+            padding: 10px 10px 5px 25px;
+        }
+
+        nav li {
+            padding: 3px;
+        }
+
+        section {
+            position: absolute;
+            clear: both;
+            left: 150px;
+            width: 650px;
+            height: 600px;
+            background-color: #252525;
+        }
+
+        #main_title {
+            width: 572px;
+            padding: 10px;
+            border: 5px solid #444444;
+            margin: 24px 0px 0px 24px;
+            font: 18px white bold;
+        }
+
+        #main_img {
+            padding: 15px 0px 0px 24px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #thumnail {
+            /* display: flex;
+            align-items: center;
+            justify-content: center; */
+            padding: 30px 0px 0px 70px;
+        }
+
+        #thumnail * {
+            float: left;
+        }
+
+        #move_left {
+            margin: 20px 5px 0px 40px;
+        }
+
+        #photos li {
+            margin-top: 3px;
+        }
+
+        #move_right {
+            margin: 20px 0px 0px 15px;
+        }
+
+        #photos img {
+            margin-left: 10px;
+            border: solid 5px #3d3d3d;
+            cursor: pointer;
+        }
+        #photos img:hover{
+            border: solid 5px #ffffff
+        }
+    </style>
+    <!-- <script src="..\jquery-3.6.3.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script>
+        function thum(name) {
+            var name;
+            var change = $(name).attr("src");
+            $('#main_img').attr("src",change);
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div id="logo">PHOTO GALLERY</div>
+        <div id="top_menu">로그인 | 회원가입 | 방명록</div>
+    </header>
+    <nav>
+        <h2>포토갤러리</h2>
+        <ul>
+            <li class="submenu">+풍경</li>
+            <li class="submenu">+일상</li>
+            <li class="submenu">+인물</li>
+            <li class="submenu">+가족</li>
+        </ul>
+    </nav>
+    <section>
+        <div id="main_title">
+            풍경사진
+        </div>
+        <img src="https://placeholder.com/600x400" alt="" id="main_img" width="600" height="400">
+        <div id="thumnail">
+            <img src="https://placeholder.com/30x30" alt="" id="move_left">
+            <ul id="photos">
+                <li><img src="https://placeholder.com/60x60/ff7979/2ea5e3&text=1" onmousedown="thum(this)"></li>
+                <li><img src="https://placeholder.com/60x60/ff7979/2ea5e3&text=2" onmousedown="thum(this)"></li>
+                <li><img src="https://placeholder.com/60x60/ff7979/2ea5e3&text=3" onmousedown="thum(this)"></li>
+                <li><img src="https://placeholder.com/60x60/ff7979/2ea5e3&text=4" onmousedown="thum(this)"></li>
+                <li><img src="https://placeholder.com/60x60/ff7979/2ea5e3&text=5" onmousedown="thum(this)"></li>
+            </ul>
+            <img src="https://placeholder.com/30x30" alt="" id="move_right">
+        </div>
+    </section>
+</body>
+
+</html>

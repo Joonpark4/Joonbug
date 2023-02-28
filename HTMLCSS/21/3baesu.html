@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML</title>
+</head>
+<body>
+    <script>
+        let num = prompt("숫자를 입력하세요", 0);
+        let cal = num % 3;
+        if(num !== null){
+            parseInt(num);
+            if(cal == 0){
+                alert("이 숫자는 3의 배수입니다")
+            }else{
+                alert("이 숫자는 3의 배수가 아닙니다.")
+            }
+        }else{
+            alert("취소하셨습니다")
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>HTML</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <!-- <script src="..\jquery-3.6.3.min.js"></script> -->
+    <script>
+        $(document).ready(function(){
+        });
+    </script>
+    <style>
+        .image-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  background-color: blue;
+}
+
+.image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  transition: transform 0.3s ease-out;
+}
+
+.image-container img:hover {
+  transform: scale(1.2);
+}
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="bakhyunDong.png">
+      </div>
+</body></html>

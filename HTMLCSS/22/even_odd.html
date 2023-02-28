@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>HTML</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <!-- <script src="..\jquery-3.6.3.min.js"></script> -->
+
+    <style>
+    </style>
+</head>
+<body>
+    <h3>짝수 홀수 판별</h3><hr>
+    <script>
+        var userNumber = prompt("숫자를 입력하세요");
+        // if문의 경우
+        // if (userNumber != null){
+        //     parseInt(userNumber);
+        //     if (userNumber % 2 == 0){
+        //         alert(userNumber + " 는 짝수입니다.");
+        //     } else {
+        //         alert(userNumber + " 는 홀수입니다.");
+        //     }
+        // } else {
+        //     alert("취소하셨습니다");
+        // }
+        // 삼항연산자의 경우
+        // (조건) ? 참 : 거짓
+        (userNumber != null) ? (userNumber % 2 == 0) ? alert(userNumber + " 는 짝수입니다.") : alert(userNumber + " 는 홀수입니다.") : alert("취소하셨습니다");
+    </script>
+</body></html>

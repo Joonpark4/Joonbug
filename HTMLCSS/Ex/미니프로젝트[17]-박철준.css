@@ -1,0 +1,95 @@
+*{margin: 0;padding: 0;}
+body{
+    font-family: '맑은 고딕', '돋움';
+    font-size: 12px;
+    color: #444444;
+}
+#page{
+    width: 980px;
+    margin: 0 auto;
+}
+aside{
+    width: 200px;
+    float: left;
+    /* background-color: red; */
+}
+aside>h3{
+    margin: 20px 20px 0px 20px;
+    padding-bottom: 4px;
+    border-bottom: 3px solid #00bcd4;
+}
+aside>ul{
+    margin: 10px 10px 20px 10px;
+    padding: 0px 10px 10px 10px;
+}
+aside>ul>li{
+    padding: 5px 0px 0px 0px;
+}
+.col1{
+    float: left;
+    margin: 5px;
+    padding: 5px 0px 5px 7px;
+}
+.col2{
+    float: right;
+    margin: 5px;
+    padding: 5px 7px 5px 0px;
+}
+aside .clear{
+    border-bottom: 1px solid #e0e0e0;
+    clear: both;
+}
+.clear{
+    clear: both;
+    /* float: left; */
+}
+li{
+    list-style-type: none;
+}
+aside>ul>li:hover{
+    background-color: #00bcd4;
+    color: white;
+}
+section{
+    position: absolute;
+    left: 200px;
+    /* background-color: blue; */
+}
+section h3{
+    float: left;
+    margin-right: 30px;
+}
+#customer{
+    text-align: center;
+}
+aside>ul>li:last-child{
+    border-bottom: 2px solid #e0e0e0;
+}
+button{
+    margin-right: 4px;
+    background-color: #00bcd4;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 12px;
+    padding: 2px 4px;
+}
+.product{
+    border-top: 2px solid #00bcd4;
+    padding: 14px 0px 4px 0px;
+    margin: 10px 0px 5px 0px;
+}
+section .clear{
+    margin: 10px;
+}
+section img{
+    padding-bottom: 10px;
+}
+aside img{
+    padding-bottom: 20px;
+}
+main>.clear{
+    border-bottom: 4px solid #00bcd4;
+    width: 680px;
+    margin-left: 20px;
+}

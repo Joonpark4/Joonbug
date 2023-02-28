@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HTML</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $("#sujungGu").on("click", function () {
+                var $clickedImg = $(this);
+                $("#container img").removeClass('hovo');
+                // 함수 실행 방법 : 함수명(매개변수);
+                right_sujung(1000);
+                $("#container img").not($clickedImg).animate({
+                    width: '0%',
+                    height: '0%',
+                    opacity: 0
+                }, 1000);
+                $clickedImg.parent().animate({
+                    'left': '10px'
+                }, 1000);
+                $clickedImg.animate({
+                    width: "190%",
+                    height: "190%",
+                }, 1000);
+            });
+            $("#jungwonGu").on("click", function () {
+                var $clickedImg = $(this);
+                $("#container img").removeClass('hovo');
+                right_jungwon(1000);
+                $("#container img").not($clickedImg).animate({
+                    width: '0%',
+                    height: '0%',
+                    opacity: 0
+                }, 1000);
+                $clickedImg.parent().animate({
+                    'left': '50px'
+                }, 1000);
+                $clickedImg.animate({
+                    width: "250%",
+                    height: "250%",
+                }, 1000);
+            });
+            $("#bundangGu").on("click", function () {
+                var $clickedImg = $(this);
+                $("#container img").removeClass('hovo');
+                right_bundang(1000);
+                $("#container img").not($clickedImg).animate({
+                    width: '0%',
+                    height: '0%',
+                    opacity: 0
+                }, 1000);
+                $clickedImg.parent().animate({
+                    'top': '40px',
+                    'left': '20px'
+                }, 1000);
+                $clickedImg.animate({
+                    width: "180%",
+                    height: "180%",
+                }, 1000);
+            });
+            // 수정구 체크박스
+            $('#shiheung').on('click', function () { // 시흥id를 가진 체크박스가 클릭될때 이벤트 발생
+                if ($(this).is(':checked')) { // 이게 체크가 되어있을 경우
+                    $('#pin_shiheung').show().addClass('rotate-jump'); // 시흥핀을 보여주고 rotate-jump 클래스를 추가해줌
+                } else { // 체크가 해제되어 있을 경우
+                    $('#pin_shiheung').removeClass('rotate-jump').hide(); // 시흥핀을 사라지게 하고 클래스도 없애줌
+                }
+            });
+            $('#godeung').on('click', function () {
+                if ($(this).is(':checked')) {
+                    $('#pin_godeung').show().addClass('rotate-jump');
+                } else {
+                    $('#pin_godeung').removeClass('rotate-jump').hide();
+                }
+            });
+            $('#shinchon').on('click', function () {
+                if ($(this).is(':checked')) {
+                    $('#pin_shinchon').show().addClass('rotate-jump');
+                } else {
+                    $('#pin_shinchon').removeClass('rotate-jump').hide();
+                }
+            });
+            $('#bokjung').on('click', function () {
+                if ($(this).is(':checked')) {
+                    $('#pin_bokjung').show().addClass('rotate-jump');
+                } else {
+                    $('#pin_bokjung').removeClass('rotate-jump').hide();
+                }
+            });
+            $('#sujin').on('click', function () {
+                if ($(this).is(':checked')) {
+                    $('#pin_sujin').show().addClass('rotate-jump');
+                } else {
+                    $('#pin_sujin').removeClass('rotate-jump').hide();
+                }
+            });
+            $('#taepyung').on('click', function () {
+                if ($(this).is(':checked')) {
+                    $('#pin_taepyung').show().addClass('rotate-jump');
+                } else {
+                    $('#pin_taepyung').removeClass('rotate-jump').hide();
+                }
+            });
+            $('#shinheung').on('click', function () {
+                if ($(this).is(':checked')) {
+                    $('#pin_shinheung').show().addClass('rotate-jump');
+                } else {
+                    $('#pin_shinheung').removeClass('rotate-jump').hide();
+                }
+            });
+            $('#sansung').on('click', function () {
+                if ($(this).is(':checked')) {
+                    $('#pin_sansung').show().addClass('rotate-jump');
+                } else {
+                    $('#pin_sansung').removeClass('rotate-jump').hide();
+                }
+            });
+            $('#dandae').on('click', function () {
+                if ($(this).is(':checked')) {
+                    $('#pin_dandae').show().addClass('rotate-jump');
+                } else {
+                    $('#pin_dandae').removeClass('rotate-jump').hide();
+                }
+            });
+            $('#yangzi').on('click', function () {
+                if ($(this).is(':checked')) {
+                    $('#pin_yangzi').show().addClass('rotate-jump');
+                } else {
+                    $('#pin_yangzi').removeClass('rotate-jump').hide();
+                }
+            });
+            // 중원구 체크박스
+            $('#eunhang').on('click', function () { // 시흥id를 가진 체크박스가 클릭될때 이벤트 발생
+                if ($(this).is(':checked')) { // 이게 체크가 되어있을 경우
+                    $('#pin_eunhang').show().addClass('rotate-jump'); // 시흥핀을 보여주고 rotate-jump 클래스를 추가해줌
+                } else { // 체크가 해제되어 있을 경우
+                    $('#pin_eunhang').removeClass('rotate-jump').hide(); // 시흥핀을 사라지게 하고 클래스도 없애줌
+                }
+            });
+            $('#geumgwang').on('click', function () {
+                if ($(this).is(':checked')) {
+                    $('#pin_geumgwang').show().addClass('rotate-jump');
+                } else {
+                    $('#pin_geumgwang').removeClass('rotate-jump').hide();
+                }
+            });
+            $('#jungang').on('click', function () {
+                if ($(this).is(':checked')) {
+                    $('#pin_jungang').show().addClass('rotate-jump');
+                } else {
+                    $('#pin_jungang').removeClass('rotate-jump').hide();
+                }
+            });
+            $('#sangdaewon').on('click', function () {
+                if ($(this).is(':checked')) {
+                    $('#pin_sangdaewon').show().addClass('rotate-jump');
+                } else {
+                    $('#pin_sangdaewon').removeClass('rotate-jump').hide();
+                }
+            });
+            $('#hadaewon').on('click', function () {
+                if ($(this).is(':checked')) {
+                    $('#pin_hadaewon').show().addClass('rotate-jump');
+                } else {
+                    $('#pin_hadaewon').removeClass('rotate-jump').hide();
+                }
+            });
+            $('#sungnam').on('click', function () {
+                if ($(this).is(':checked')) {
+                    $('#pin_sungnam').show().addClass('rotate-jump');
+                } else {
+                    $('#pin_sungnam').removeClass('rotate-jump').hide();
+                }
+            });
+            $('#dochon').on('click', function () {
+                if ($(this).is(':checked')) {
+                    $('#pin_dochon').show().addClass('rotate-jump');
+                } else {
+                    $('#pin_dochon').removeClass('rotate-jump').hide();
+                }
+            });
+        });
+        
+
+        function rewind() {
+            $("#container img").animate({
+                width: '100%',
+                height: '100%',
+                opacity: '1'
+            }, 1000);
+            $("#sujungGu").parent().animate({
+                'left': '100px'
+            }, 1000);
+            $("#jungwonGu").parent().animate({
+                'left': '240px'
+            }, 1000);
+            $("#bundangGu").parent().animate({
+                'top': '158px',
+                'left': '97px'
+            }, 1000);
+            // Use promise() method to wait for all animations to finish
+            // promise() 메소드와 done(function()) 메소드를 함께 사용할 경우 이 함수가 모두 끝나기까지 기다린 후 다음을 실행한다.
+            $("#container img").promise().done(function () {
+                $("#container img").addClass('hovo');
+            });
+            right_close(1000);
+            $("input:checkbox").prop("checked", false);
+            $('#pin img').hide();
+        }
+
+        function right_sujung(time) {$("#sujung2").slideDown(time);}
+        function right_jungwon(time) {$("#jungwon2").slideDown(time);}
+        function right_bundang(time) {$("#bundang2").slideDown(time);}
+        function right_close(time) {$(".right").slideUp(time);}
+
+    </script>
+    <style>
+        #container {
+            float: left;
+        }
+
+        #container div {
+            position: absolute;
+        }
+
+        /* img의 크기를 div에 꽉 채워주도록 함 */
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 수정구 위치 잡기 */
+        #sujung1 {
+            top: 32px;
+            left: 100px;
+            /* background-color: yellow; */
+        }
+
+        /* 중원구 위치 잡기 */
+        #jungwon1 {
+            top: 35px;
+            left: 240px;
+            /* background-color: blue; */
+        }
+
+        /* 분당구 위치 잡기 */
+        #bundang1 {
+            top: 158px;
+            left: 97px;
+            /* background-color: red; */
+        }
+
+        /* 마우스가 오버됐을 경우 오브젝트에 그림자를 뿌리고 왼쪽 위로 0.5초간 이동 */
+        /* #container div:hover {
+            filter: drop-shadow(10px 10px 15px black);
+            transform: translate(-10px, -10px);
+            transition: 500ms;
+        } */
+        /* 클래스가 부여된 대상에만 호버 이벤트를 발생시킴 */
+        .hovo:hover {
+            filter: drop-shadow(10px 10px 15px black);
+            transform: translate(-10px, -10px);
+            transition: 500ms;
+            cursor: pointer;
+        }
+
+        img {
+            /* position: relative; */
+            filter: drop-shadow(0px 0px 2px black);
+        }
+
+        .right {
+            position: absolute;
+            top: 50px;
+            left: 535px;
+            width: 150px;
+            height: 520px;
+            background-color: deepskyblue;
+            display: none;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 10px 0px 10px -10px;
+            font-size: 20px;
+        }
+
+        ul {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #pin img {
+            position: absolute;
+            /* display: none; */
+            width: 25px;
+            height: 25px;
+        }
+        /* 수정구 */
+        #pin_shiheung {
+            top: 280px;
+            left: 130px;
+        }
+
+        #pin_godeung {
+            top: 180px;
+            left: 200px;
+        }
+
+        #pin_shinchon {
+            top: 100px;
+            left: 220px;
+        }
+
+        #pin_bokjung {
+            top: 80px;
+            left: 320px;
+        }
+
+        #pin_yangzi {
+            top: 60px;
+            left: 400px;
+        }
+
+        #pin_dandae {
+            top: 110px;
+            left: 380px;
+        }
+
+        #pin_sansung {
+            top: 100px;
+            left: 350px;
+        }
+
+        #pin_shinheung {
+            top: 140px;
+            left: 320px;
+        }
+
+        #pin_taepyung {
+            top: 130px;
+            left: 270px;
+        }
+
+        #pin_sujin {
+            top: 160px;
+            left: 280px;
+        }
+        /* 중원구 */
+        #pin_eunhang {
+            top: 90px;
+            left: 310px;
+        }
+        #pin_geumgwang {
+            top: 150px;
+            left: 260px;
+        }
+        #pin_jungang {
+            top: 210px;
+            left: 200px;
+        }
+        #pin_sangdaewon {
+            top: 200px;
+            left: 320px;
+        }
+        #pin_hadaewon {
+            top: 280px;
+            left: 180px;
+        }
+        #pin_sungnam {
+            top: 260px;
+            left: 110px;
+        }
+        #pin_dochon {
+            top: 320px;
+            left: 280px;
+        }
+
+        @keyframes jump {
+            0% {
+                transform: rotateY(0deg) translateY(0);
+            }
+
+            25% {
+                transform: rotateY(90deg) translateY(10px);
+            }
+
+            50% {
+                transform: rotateY(180deg) translateY(0);
+            }
+
+            75% {
+                transform: rotateY(270deg) translateY(10px);
+            }
+
+            100% {
+                transform: rotateY(360deg) translateY(0);
+            }
+        }
+
+        .rotate-jump {
+            animation-name: jump;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: 1;
+        }
+        #pin_sujung img, #pin_jungwon img{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="sujung1"><img src="sujungGu.png" id="sujungGu" class="hovo"></div>
+        <div id="jungwon1"><img src="jungwonGu.png" id="jungwonGu" class="hovo"></div>
+        <div id="bundang1"><img src="bundangGu.png" id="bundangGu" class="hovo"></div>
+    </div>
+    <div id="pin">
+        <div id="pin_sujung">
+            <img src="pin.png" id="pin_shiheung">
+            <img src="pin.png" id="pin_godeung">
+            <img src="pin.png" id="pin_shinchon">
+            <img src="pin.png" id="pin_bokjung">
+            <img src="pin.png" id="pin_sujin">
+            <img src="pin.png" id="pin_taepyung">
+            <img src="pin.png" id="pin_shinheung">
+            <img src="pin.png" id="pin_sansung">
+            <img src="pin.png" id="pin_dandae">
+            <img src="pin.png" id="pin_yangzi">
+        </div>
+        <div id="pin_jungwon">
+            <img src="pin.png" id="pin_eunhang">
+            <img src="pin.png" id="pin_geumgwang">
+            <img src="pin.png" id="pin_jungang">
+            <img src="pin.png" id="pin_sangdaewon">
+            <img src="pin.png" id="pin_hadaewon">
+            <img src="pin.png" id="pin_sungnam">
+            <img src="pin.png" id="pin_dochon">
+        </div>
+    </div>
+    <button onclick="rewind()">첫 화면</button>
+    <div id="sujung2" class="right">
+        <h3>
+            <center>수정구</center>
+        </h3>
+        <ul>
+            <li><input type="checkbox" id="shiheung">시흥동</li>
+            <li><input type="checkbox" id="godeung">고등동</li>
+            <li><input type="checkbox" id="shinchon">신촌동</li>
+            <li><input type="checkbox" id="bokjung">복정동</li>
+            <li><input type="checkbox" id="sujin">수진동</li>
+            <li><input type="checkbox" id="taepyung">태평동</li>
+            <li><input type="checkbox" id="shinheung">신흥동</li>
+            <li><input type="checkbox" id="sansung">산성동</li>
+            <li><input type="checkbox" id="dandae">단대동</li>
+            <li><input type="checkbox" id="yangzi">양지동</li>
+        </ul>
+    </div>
+    <div id="jungwon2" class="right">
+        <h3>
+            <center>중원구</center>
+        </h3>
+        <ul>
+            <li><input type="checkbox" id="eunhang">은행동</li>
+            <li><input type="checkbox" id="geumgwang">금광동</li>
+            <li><input type="checkbox" id="jungang">중앙동</li>
+            <li><input type="checkbox" id="sangdaewon">상대원동</li>
+            <li><input type="checkbox" id="hadaewon">하대원동</li>
+            <li><input type="checkbox" id="sungnam">성남동</li>
+            <li><input type="checkbox" id="dochon">도촌동</li>
+        </ul>
+    </div>
+    <div id="bundang2" class="right">
+        <h3>
+            <center>분당구</center>
+        </h3>
+        <ul>
+            <li><input type="checkbox" id="yatap">야탑동</li>
+            <li><input type="checkbox" id="imae">이매동</li>
+            <li><input type="checkbox" id="sampyung">삼평동</li>
+            <li><input type="checkbox" id="pangyo">판교동</li>
+            <li><input type="checkbox" id="unjung">운중동</li>
+            <li><input type="checkbox" id="baekhyun">백현동</li>
+            <li><input type="checkbox" id="geumgok">금곡동</li>
+            <li><input type="checkbox" id="gumi">구미동</li>
+            <li><input type="checkbox" id="jungja">정자동</li>
+            <li><input type="checkbox" id="sunae">수내동</li>
+            <li><input type="checkbox" id="bundang">분당동</li>
+            <li><input type="checkbox" id="seohyun">서현동</li>
+        </ul>
+    </div>
+</body>
+
+</html>

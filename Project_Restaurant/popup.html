@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HTML</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $("#sujungGu").on("click", function () {
+                var $clickedImg = $(this);
+                var $selgu = 0;
+                $("#container img").not($clickedImg).animate({
+                    width: 0 +'%',
+                    height: 0 +'%',
+                    opacity: 0
+                }, 1000);
+                $clickedImg.animate({
+                    width: "200%",
+                    height: "200%",
+                }, 1000);
+            });
+            $("#jungwonGu").on("click", function () {
+                var $clickedImg = $(this);
+                var $selgu = 1;
+                $("#container img").not($clickedImg).animate({
+                    width: 0 +'%',
+                    height: 0 +'%',
+                    opacity: 0
+                }, 1000);
+                $clickedImg.animate({
+                    width: "200%",
+                    height: "200%",
+                }, 1000);
+            });
+            $("#bundangGu").on("click", function () {
+                var $clickedImg = $(this);
+                var $selgu = 2;
+                $("#container img").not($clickedImg).animate({
+                    width: 0 +'%',
+                    height: 0 +'%',
+                    opacity: 0
+                }, 1000);
+                $clickedImg.animate({
+                    width: "200%",
+                    height: "200%",
+                }, 1000);
+            });
+        });
+        
+        function rewind(){
+            $("#container img").animate({
+                width: 100 + '%',
+                height: 100 + '%',
+                opacity: 100 + '%'
+            }, 1000);
+        }
+    </script>
+    <style>
+        #container{
+            float: left;
+        }
+        #container div {
+            position: absolute;
+        }
+
+        /* img의 크기를 div에 꽉 채워주도록 함 */
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 수정구 위치 잡기 */
+        #sujung1 {
+            top: 32px;
+            left: 100px;
+            /* background-color: yellow; */
+        }
+
+        /* 중원구 위치 잡기 */
+        #jungwon1 {
+            top: 35px;
+            left: 240px;
+            /* background-color: blue; */
+        }
+
+        /* 분당구 위치 잡기 */
+        #bundang1 {
+            top: 158px;
+            left: 97px;
+            /* background-color: red; */
+        }
+
+        /* 마우스가 오버됐을 경우 오브젝트에 그림자를 뿌리고 왼쪽 위로 0.5초간 이동 */
+        #container div:hover {
+            filter: drop-shadow(10px 10px 15px black);
+            transform: translate(-10px, -10px);
+            transition: 500ms;
+        }
+        img {
+            /* position: relative; */
+            filter: drop-shadow(0px 0px 2px black);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="sujung1"><img src="sujungGu.png" id="sujungGu"></div>
+        <div id="jungwon1"><img src="jungwonGu.png" id="jungwonGu"></div>
+        <div id="bundang1"><img src="bundangGu.png" id="bundangGu"></div>
+    </div>
+    <button onclick="rewind()">첫 화면</button>
+</body>
+
+</html>
