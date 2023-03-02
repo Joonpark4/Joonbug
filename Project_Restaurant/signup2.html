@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HTML</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <!-- <script src="..\jquery-3.6.3.min.js"></script> -->
+    <script>
+        $(document).ready(function () {
+        });
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            margin: 25px;
+            padding: 25px;
+            width: 400px;
+            height: 700px;
+            background-color: #ffccbc;
+            text-align: center;
+            box-shadow: 6px 6px 25px 1px gray;
+            border-radius: 15px;
+        }
+
+        #container span {
+            font: 25px bold;
+            margin: 30px 35px 30px 35px;
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 8px;
+            /* background-color: #dcedc8; */
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        h2 {
+            margin-bottom: 5px;
+            padding-bottom: 20px;
+        }
+
+        .bottom{
+            position: relative;
+            background-color: #fb8c00;
+            width: 450px; height: 630px;
+            left: 50%;
+            margin-top: 5px;
+            transform: translate(-50%,0%);
+            border-radius: 15px;
+        }
+        .bottom>div{
+            position: relative;
+            background-color: white;
+            width: 430px;height: 590px;
+            left: 50%; top: 50%;
+            margin-top: 5px;
+            transform: translate(-50%,-50%);
+            border-radius: 15px;
+        }
+        .content2{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="top">
+            <h2>회원 가입</h2>
+            <span style="background-color: #fb8c00;">개인회원</span>
+            <span>사장님</span>
+        </div>
+        <div class="bottom">
+            <div class="content1" >
+
+            </div>
+            <div class="content2">
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

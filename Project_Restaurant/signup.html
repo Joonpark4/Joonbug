@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HTML</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <!-- <script src="..\jquery-3.6.3.min.js"></script> -->
+    <script>
+        // 제이쿼리 사용 준비문 절대 빼먹지 말자
+        $(document).ready(function () {
+            $("#tab div").on("click", function () {
+                $(this).addClass('selected');
+                $("#tab div").not(this).removeClass('selected');
+            })
+        });
+        // 아래 함수들은 제이쿼리 사용 준비문 안에 넣지 말것
+        function mg_id() {
+            alert("이미 존재하는 ID 입니다. 다른 ID를 선택하세요.");
+        }
+        function mg_yet() {
+            alert("아직 준비중인 기능입니다.");
+        }
+        function mg_idck_first(){
+            alert("ID 중복확인을 먼저 해주세요.");
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            /* 바디의 높이를 100% 뷰포트로 정해주지 않으면 내부 컨텐츠크기에 
+            딱 맞춰 높이가 설정되므로 align-item 중앙정렬이 의미 없어짐 */
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* 큰 살구색 박스 */
+        #container {
+            margin: 25px;
+            padding: 15px;
+            width: 400px;
+            height: 566px;
+            background-color: #ffccbc;
+            text-align: center;
+            box-shadow: 6px 6px 25px 1px gray;
+            border-radius: 15px;
+        }
+
+        h2 {
+            margin-bottom: 5px;
+            padding-bottom: 5px;
+        }
+
+        #tab {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        #tab div {
+            padding: 15px 60px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        #tab div:hover {
+            text-decoration: overline 3px;
+        }
+
+        .bottom {
+            position: relative;
+            background-color: #fb8c00;
+            width: 430px;
+            height: 500px;
+            left: 50%;
+            transform: translate(-50%, -4%);
+            border-radius: 15px;
+        }
+
+        .content {
+            position: relative;
+            background-color: white;
+            width: 370px;
+            height: 435px;
+            left: 50%;
+            top: 50%;
+            margin-top: 5px;
+            transform: translate(-50%, -50%);
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        #infor {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .item {
+            flex: 2 1 1;
+            /* border: 1px solid; */
+        }
+
+        .tx {
+            border: 2px solid #ffccbc;
+            margin: 10px;
+            padding: 0;
+            width: 220px;
+        }
+
+        .textbox,
+        .textbox2,
+        .textbox3 {
+            width: 100%;
+            border: none;
+            outline: none;
+            color: #636e72;
+            font-size: 15px;
+            height: 25px;
+            background: none;
+            margin-left: 15px;
+        }
+
+        /* 위와 같지만 왼쪽 마진이 없는 버전 */
+        .textbox2 {
+            margin-left: 0px;
+        }
+
+        .textbox3 {
+            margin-left: 8px;
+        }
+
+        .btn button {
+            width: 115px;
+            margin: 9px 0px 0px 0px;
+            padding: 5px 15px 5px 15px;
+            border-radius: 10px;
+            border-color: #fb8c00;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        #email1,
+        #email2 {
+            width: 150px;
+        }
+
+        #number1 {
+            width: 70px;
+        }
+
+        #number2,
+        #number3,
+        #number4 {
+            width: 50px;
+        }
+
+        #address {
+            width: 300px;
+        }
+
+        #join {
+            display: flex;
+            justify-content: space-evenly;
+            padding-top: 10px;
+        }
+
+        #join>.btn {
+            width: 150px;
+            height: 40px;
+            font-size: 18px;
+            cursor: pointer;
+            /* linear-gradient란, 선형(가장 일반적인) 그라데이션을 줄 수 있는 속성 (방향 또는 각도, 색) */
+            /* radial-gradient(반지름형), repeating-gradient(반복형) */
+            background: linear-gradient(125deg, #ffccbc, #fb8c00, #ffccbc);
+            background-position: left;
+            /* 백그라운드 사이즈를 키운 이유는 일반적인 3색 그라데이션을 보여줄 것이 아니라 
+            두가지만 보여준 후 나중에 hover 이벤트로 반대쪽 그라데이션을 보여줄 것이기 때문  */
+            background-size: 200%;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 15px;
+            transition: 0.4s;
+        }
+
+        #join>.btn:hover {
+            background: linear-gradient(125deg, #ffccbc, #d84315, #ffccbc);
+            background-size: 200%;
+            background-position: right;
+        }
+
+        .clear {
+            width: 100px;
+        }
+
+        .selected {
+            background-color: #fb8c00;
+            font-weight: bold;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="top">
+            <h2>회원 가입</h2>
+        </div>
+        <!-- this를 매개변수로 주지 않으면 안됨 : 함수 내 this로 처리하면 그 윈도우를 this로 받아버리는 상황 발생 -->
+        <div id="tab">
+            <div class="selected">개인회원</div>
+            <div>사장님</div>
+        </div>
+        <div class="bottom">
+            <div class="content">
+                <div id="infor">
+                    <div class="tx item">
+                        <input type="text" class="textbox" placeholder="아이디">
+                    </div>
+                    <div class="btn item" id="id_check"><button onclick="mg_id()">ID 중복확인</button></div>
+                    <div class="tx item">
+                        <input type="password" class="textbox" placeholder="비밀번호">
+                    </div>
+                    <div class="tx item">
+                        <input type="password" class="textbox" placeholder="비밀번호 확인">
+                    </div>
+                    <div class="clear"></div>
+                    <div class="tx item" id="number1">
+                        <select class="textbox2">
+                            <option>통신사</option>
+                            <option>SKT</option>
+                            <option>KT</option>
+                            <option>LG U+</option>
+                            <option>알뜰폰</option>
+                        </select>
+                    </div>
+                    <div class="tx item" id="number2">
+                        <input type="text" class="textbox3" placeholder="010">
+                    </div>
+                    <p style="line-height: 3;">-</p>
+                    <div class="tx item" id="number3">
+                        <input type="text" class="textbox3" placeholder="1234">
+                    </div>
+                    <p style="line-height: 3;">-</p>
+                    <div class="tx item" id="number4">
+                        <input type="text" class="textbox3" placeholder="5678">
+                    </div>
+                    <div class="tx item">
+                        <input type="text" class="textbox" placeholder="이름">
+                    </div>
+                    <div class="tx item" id="email1">
+                        <input type="text" class="textbox" placeholder="이메일">
+                    </div>
+                    <!-- 글자가 1줄일 경우 line-height 줄간격 조정 태그로 글자 높이 조정 가능 -->
+                    <p style="line-height: 3;">@</p>
+                    <div class="tx item" id="email2">
+                        <select class="textbox2">
+                            <option>선택하기</option>
+                            <option>naver.com</option>
+                            <option>daum.net</option>
+                            <option>gmail.com</option>
+                            <option>yahoo.com</option>
+                        </select>
+                    </div>
+                    <div class="tx item">
+                        <input type="text" class="textbox" placeholder="주소 입력">
+                    </div>
+                    <div class="btn item" id="btn_address"><button onclick="mg_yet()">주소 찾기</button></div>
+                    <div class="tx item" id="address">
+                        <input type="text" class="textbox" placeholder="상세 주소">
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div id="join">
+                    <button type="submit" class="btn" onclick="location.href='login.html';">취소</button>
+                    <button type="submit" class="btn" onclick="mg_idck_first()">회원 가입</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
