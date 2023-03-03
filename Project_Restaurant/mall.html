@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <!-- <script src="..\jquery-3.6.3.min.js"></script> -->
+    <script>
+    </script>
+    <style>
+        /* 전체 화면 초기화 */
+        *{
+            margin: 0;padding: 0;
+        }
+        /* 상단 메뉴와 배너 예시 이미지 띄우기 */
+        .menu img,
+        .banner img{
+            width: 100%;
+        }
+        /* 바디 전체에 플렉스를 주어서 하단 내용(container)를 중앙으로 가져오기 */
+        body{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        /* 컨테이너 내 아이템(상품)들을 이쁘게 배치하기 위해 플렉스 부여 */
+        .container {
+            display: flex;
+            width: 80%;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        /* 각각의 상품들, 각 상품을 중앙으로 옹기종기 모이게 했으므로 마진을 주어 띄우기  */
+        .item {
+            margin: 15px;
+            width: 250px;
+        }
+        /* 이미지 사진 크기 조절 */
+        .pic {
+            width: 250px;
+            height: 250px;
+        }
+        /* 세일가격, 취소선 */
+        .sale {
+            text-decoration-line: line-through;
+        }
+        /* 상품 이름 볼드처리 */
+        .name {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #fb8c00;
+        }
+
+        .price::before {
+            content: "판매가 : ";
+        }
+        .content{
+            margin: 10px;
+        }
+        .saleimg,
+        .newimg {
+            position: absolute;
+            width: 50px;height: 50px;
+            float: left;
+            filter: drop-shadow(2px 2px 2px gray);
+        }
+        .newimg{
+            transform: translate(390%,0%);
+        }
+        p{
+            margin: 5px 0px 5px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu"><img src="img/033.jpg" alt=""></div>
+    <div class="banner"><img src="img/037.jpg" alt=""></div>
+    <div class="container">
+        <div class="item">
+            <div class="image">
+                <img src="img/sale.png" class="saleimg">
+                <img src="img/new.png" class="newimg">
+                <img src="img/1.png" class="pic">
+            </div>
+            <div class="content">
+                <p class="name">쌈채소와 야채샌드위치</p>
+                소비자가 : <span class="sale">12,900원</span>
+                <br>
+                <span class="price">9,900원</span>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="image">
+                <img src="img/sale.png" class="saleimg">
+                <img src="img/2.png" class="pic">
+            </div>
+            <div class="content">
+                <p class="name">김치 돼지찌개</p>
+                소비자가 : <span class="sale">12,900원</span>
+                <br>
+                <span class="price">9,900원</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <img src="img/sale.png" class="saleimg">
+                <img src="img/new.png" class="newimg">
+                <img src="img/3.png" class="pic">
+            </div>
+            <div class="content">
+                <p class="name">소고기 볶음면</p>
+                소비자가 : <span class="sale">12,900원</span>
+                <br>
+                <span class="price">9,900원</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <img src="img/new.png" class="newimg">
+                <img src="img/4.png" class="pic">
+            </div>
+            <div class="content">
+                <p class="name">우동 볶음면</p>
+                <span class="price">7,900원</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <img src="img/sale.png" class="saleimg">
+                <img src="img/new.png" class="newimg">
+                <img src="img/5.png" class="pic">
+            </div>
+            <div class="content">
+                <p class="name">닭날개 볶음밥</p>
+                소비자가 : <span class="sale">12,900원</span>
+                <br>
+                <span class="price">9,900원</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <img src="img/6.png" class="pic">
+            </div>
+            <div class="content">
+                <p class="name">와규 스테이크</p>
+                <span class="price">13,900원</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <img src="img/new.png" class="newimg">
+
+                <img src="img/7.png" class="pic">
+            </div>
+            <div class="content">
+                <p class="name">칼칼한 갈치알탕</p>
+                <span class="price">13,900원</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <img src="img/sale.png" class="saleimg">
+                <img src="img/new.png" class="newimg">
+                <img src="img/8.png" class="pic">
+            </div>
+            <div class="content">
+                <p class="name">두부 한 모 된장찌개</p>
+                소비자가 : <span class="sale">12,900원</span>
+                <br>
+                <span class="price">13,900원</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

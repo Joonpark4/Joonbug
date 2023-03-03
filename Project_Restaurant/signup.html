@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML</title>
     <script src="https://code.jquery.com/jquery-3.6.3.js"
         integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
@@ -12,7 +15,7 @@
             $("#tab div").on("click", function () {
                 $(this).addClass('selected');
                 $("#tab div").not(this).removeClass('selected');
-            })
+            });
         });
         // 아래 함수들은 제이쿼리 사용 준비문 안에 넣지 말것
         function mg_id() {
@@ -21,7 +24,7 @@
         function mg_yet() {
             alert("아직 준비중인 기능입니다.");
         }
-        function mg_idck_first(){
+        function mg_idck_first() {
             alert("ID 중복확인을 먼저 해주세요.");
         }
     </script>
