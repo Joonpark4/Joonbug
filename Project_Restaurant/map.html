@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML</title>
     <script src="https://code.jquery.com/jquery-3.6.3.js"
         integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
@@ -314,9 +317,10 @@
         }
 
         /* img의 크기를 div에 꽉 채워주도록 함 */
+        /* 원래 width : 100%, height : 100% 였으나, 화면이 줄어들면 찌그러지는 특징이 있었음
+        이를 object-fit으로 해결 */
         img {
-            width: 100%;
-            height: 100%;
+            object-fit: cover;
             filter: drop-shadow(0px 0px 2px black);
         }
 
@@ -325,6 +329,9 @@
             top: 32px;
             left: 100px;
             /* background-color: yellow; */
+            /* 가끔 다른 오브젝트의 z-index 값을 올려도 올라오지 않는 경우가 있는데
+            이럴 경우 뒤로 가야하는 오브젝트의 z-index값을 마이너스로 해봐야한다 */
+            z-index: -1;
         }
 
         /* 중원구 위치 잡기 */
@@ -332,6 +339,8 @@
             top: 35px;
             left: 240px;
             /* background-color: blue; */
+            z-index: -1;
+
         }
 
         /* 분당구 위치 잡기 */
@@ -339,6 +348,7 @@
             top: 158px;
             left: 97px;
             /* background-color: red; */
+            z-index: -1;
         }
 
         /* 마우스가 오버됐을 경우 오브젝트에 그림자를 뿌리고 왼쪽 위로 0.5초간 이동 */
@@ -530,6 +540,21 @@
             left: 400px;
         }
 
+        .rewind{
+            width: 115px;
+            margin: 9px 0px 0px 0px;
+            padding: 5px 15px 5px 15px;
+            border-radius: 10px;
+            border-color: #fb8c00;
+            background-color: white;
+            cursor: pointer;
+            z-index: 3;
+        }
+        .rewind:hover{
+            background-color: #ffccbc;
+            font-weight: bold;
+        }
+
         @keyframes jump {
             0% {
                 transform: rotateY(0deg) translateY(0);
@@ -562,49 +587,50 @@
 </head>
 
 <body>
+    <button onclick="rewind()" class="rewind">첫 화면</button>
     <div id="container">
-        <div id="sujung1"><img src="sujungGu.png" id="sujungGu" class="hovo"></div>
-        <div id="jungwon1"><img src="jungwonGu.png" id="jungwonGu" class="hovo"></div>
-        <div id="bundang1"><img src="bundangGu.png" id="bundangGu" class="hovo"></div>
+        <div id="sujung1"><img src="map\\sujungGu.png" id="sujungGu" class="hovo"></div>
+        <div id="jungwon1"><img src="map\\jungwonGu.png" id="jungwonGu" class="hovo"></div>
+        <div id="bundang1"><img src="map\\bundangGu.png" id="bundangGu" class="hovo"></div>
     </div>
     <div id="pin">
         <div id="pin_sujung">
-            <img src="pin.png" id="pin_shiheung">
-            <img src="pin.png" id="pin_godeung">
-            <img src="pin.png" id="pin_shinchon">
-            <img src="pin.png" id="pin_bokjung">
-            <img src="pin.png" id="pin_sujin">
-            <img src="pin.png" id="pin_taepyung">
-            <img src="pin.png" id="pin_shinheung">
-            <img src="pin.png" id="pin_sansung">
-            <img src="pin.png" id="pin_dandae">
-            <img src="pin.png" id="pin_yangzi">
+            <img src="map\\pin.png" id="pin_shiheung">
+            <img src="map\\pin.png" id="pin_godeung">
+            <img src="map\\pin.png" id="pin_shinchon">
+            <img src="map\\pin.png" id="pin_bokjung">
+            <img src="map\\pin.png" id="pin_sujin">
+            <img src="map\\pin.png" id="pin_taepyung">
+            <img src="map\\pin.png" id="pin_shinheung">
+            <img src="map\\pin.png" id="pin_sansung">
+            <img src="map\\pin.png" id="pin_dandae">
+            <img src="map\\pin.png" id="pin_yangzi">
         </div>
         <div id="pin_jungwon">
-            <img src="pin.png" id="pin_eunhang">
-            <img src="pin.png" id="pin_geumgwang">
-            <img src="pin.png" id="pin_jungang">
-            <img src="pin.png" id="pin_sangdaewon">
-            <img src="pin.png" id="pin_hadaewon">
-            <img src="pin.png" id="pin_sungnam">
-            <img src="pin.png" id="pin_dochon">
+            <img src="map\\pin.png" id="pin_eunhang">
+            <img src="map\\pin.png" id="pin_geumgwang">
+            <img src="map\\pin.png" id="pin_jungang">
+            <img src="map\\pin.png" id="pin_sangdaewon">
+            <img src="map\\pin.png" id="pin_hadaewon">
+            <img src="map\\pin.png" id="pin_sungnam">
+            <img src="map\\pin.png" id="pin_dochon">
         </div>
         <div id="pin_bundang">
-            <img src="pin.png" id="pin_yatap">
-            <img src="pin.png" id="pin_imae">
-            <img src="pin.png" id="pin_sampyung">
-            <img src="pin.png" id="pin_pangyo">
-            <img src="pin.png" id="pin_unjung">
-            <img src="pin.png" id="pin_baekhyun">
-            <img src="pin.png" id="pin_geumgok">
-            <img src="pin.png" id="pin_gumi">
-            <img src="pin.png" id="pin_jungja">
-            <img src="pin.png" id="pin_sunae">
-            <img src="pin.png" id="pin_bundang2">
-            <img src="pin.png" id="pin_seohyun">
+            <img src="map\\pin.png" id="pin_yatap">
+            <img src="map\\pin.png" id="pin_imae">
+            <img src="map\\pin.png" id="pin_sampyung">
+            <img src="map\\pin.png" id="pin_pangyo">
+            <img src="map\\pin.png" id="pin_unjung">
+            <img src="map\\pin.png" id="pin_baekhyun">
+            <img src="map\\pin.png" id="pin_geumgok">
+            <img src="map\\pin.png" id="pin_gumi">
+            <img src="map\\pin.png" id="pin_jungja">
+            <img src="map\\pin.png" id="pin_sunae">
+            <img src="map\\pin.png" id="pin_bundang2">
+            <img src="map\\pin.png" id="pin_seohyun">
         </div>
     </div>
-    <button onclick="rewind()">첫 화면</button>
+
     <div id="sujung2" class="right">
         <h3>
             <center>수정구</center>
