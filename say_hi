@@ -1,5 +1,0 @@
-def say_hello(user_name="anonymous"):
-    print("Hello", user_name)
-
-say_hello("Joon")
-say_hello()
