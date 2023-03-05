@@ -10,44 +10,113 @@
         integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <!-- <script src="..\jquery-3.6.3.min.js"></script> -->
     <script>
+        $(document).ready(function () {
+            // tap 클래스를 클릭할때 이벤트 실행
+            $(".tap").on("click", function () {
+                // 클랙된 이벤트의 list 클래스가 있는 자식에게 부여된 애니메이션을 즉시 멈추고, 슬라이드 토글 애니메이션(위아래로) 실행
+                $(this).children(".list").stop().slideToggle();
+                if($(this).hasClass("selected")){
+                    $(this).stop().removeClass("selected");
+                }else{
+                    $(this).stop().addClass("selected");
+                }
+            });
+        });
     </script>
     <style>
         /* 전체 화면 초기화 */
-        *{
-            margin: 0;padding: 0;
+        * {
+            margin: 0;
+            padding: 0;
         }
+
         /* 상단 메뉴와 배너 예시 이미지 띄우기 */
         .menu img,
-        .banner img{
+        .banner img {
             width: 100%;
         }
-        /* 바디 전체에 플렉스를 주어서 하단 내용(container)를 중앙으로 가져오기 */
-        body{
+
+        /* 메인에 따로 플렉스를 준 이유는 메뉴는 왼쪽으로 정렬하고, 컨테이너와 장바구니는 서로 붙이고 싶기 때문이다
+        노랩을 한 이유는 아무리 윈도우창을 줄여도 아래 배치한 레이아웃이 내려가지 않게 하기 위함이다 */
+        main{
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
+        }
+        
+        /* 왼쪽 메뉴바 12%로 설정*/
+        aside {
+            width: 200px;
+        }
+
+        /* 섹션에 플렉스를 주어서 컨테이너(container)와 장바구니를 최대한 붙여 중앙으로 가져오기 */
+        section{
+            width: 85%;
+            display: flex;
+            flex-wrap: nowrap;
             justify-content: center;
         }
+
         /* 컨테이너 내 아이템(상품)들을 이쁘게 배치하기 위해 플렉스 부여 */
         .container {
-            display: flex;
             width: 80%;
+            display: flex;
             flex-wrap: wrap;
             justify-content: center;
         }
+
+        /* 오른쪽 장바구니 display:flex는 탑, 컨텐츠, 버튼을 위아래로 넓게 배치하기 위해(space-between) 설정했고 
+        sticky 속성을 주어 스크롤을 따라다니도록 했다*/
+        .basket{
+            width: 100px;
+            border: 1px solid black;
+            min-height: 150px;
+            max-height: 150px;
+            display: flex;
+            flex-wrap: wrap;
+            border-radius: 10px;
+            align-content: space-between;
+            position: sticky;
+            top: 5px;
+            /* 오버플로우 히든으로 이 div밖으로 나가는 영역은 안보이도록 했다. 특히 border-radius에 의해 둥글게 깎인 모서리 부분 */
+            overflow: hidden;
+        }
+        /* 장바구니의 제목 */
+        .basket_top{
+            font-weight: bold;
+            font-size: 20px;
+            text-align: center;
+            width: 100%;
+            background-color: #ffccbc;
+        }
+        .basket_content{
+            width: 100%;
+            text-align: center;
+        }
+        .basket_buy{
+            width: 100%;
+            height: 30px;
+            border: none;
+            cursor: pointer;
+            background-color: #fb8c00;
+        }
+
         /* 각각의 상품들, 각 상품을 중앙으로 옹기종기 모이게 했으므로 마진을 주어 띄우기  */
         .item {
             margin: 15px;
             width: 250px;
         }
+
         /* 이미지 사진 크기 조절 */
         .pic {
             width: 250px;
             height: 250px;
         }
+
         /* 세일가격, 취소선 */
         .sale {
             text-decoration-line: line-through;
         }
+
         /* 상품 이름 볼드처리 */
         .name {
             font-weight: bold;
@@ -62,21 +131,45 @@
         .price::before {
             content: "판매가 : ";
         }
-        .content{
+
+        .content {
             margin: 10px;
         }
+
         .saleimg,
         .newimg {
             position: absolute;
-            width: 50px;height: 50px;
+            width: 50px;
+            height: 50px;
             float: left;
             filter: drop-shadow(2px 2px 2px gray);
         }
-        .newimg{
-            transform: translate(390%,0%);
+
+        .newimg {
+            transform: translate(390%, 0%);
         }
-        p{
+
+        p {
             margin: 5px 0px 5px 0px;
+        }
+
+        ul {
+            list-style-type: none;
+            background-color: lightcoral;
+        }
+
+        li {
+            margin: 10px;
+            padding: 10px;
+            background-color: lightskyblue;
+            border: 2px solid black;
+        }
+        #food2,
+        #stuff2{
+            display: none;
+        }
+        .selected{
+            background-color: orange;
         }
     </style>
 </head>
@@ -84,6 +177,37 @@
 <body>
     <div class="menu"><img src="img/033.jpg" alt=""></div>
     <div class="banner"><img src="img/037.jpg" alt=""></div>
+    <main>
+    <aside>
+        <ul class="menu">
+            <li id="mealkit" class="tap selected">
+                <span>밀키트</span><span>▼</span>
+                <ul id="mealkit2" class="list">
+                    <li>신 상품</li>
+                    <li>할인 상품</li>
+                    <li>전체 보기</li>
+                </ul>
+            </li>
+            <li id="food" class="tap">
+                <span>식품</span><span>▶</span>
+                <ul id="food2" class="list">
+                    <li>신선야채</li>
+                    <li>육류</li>
+                    <li>생선</li>
+                    <li>유제품</li>
+                </ul>
+            </li>
+            <li id="stuff" class="tap">
+                <span>조리용품</span><span>▶</span>
+                <ul id="stuff2" class="list">
+                    <li>프라이팬/웍</li>
+                    <li>냄비/소스팬</li>
+                    <li>오븐용품</li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+    <section>
     <div class="container">
         <div class="item">
             <div class="image">
@@ -180,7 +304,62 @@
                 <span class="price">13,900원</span>
             </div>
         </div>
+        <div class="item">
+            <div class="image">
+                <img src="img/sale.png" class="saleimg">
+                <img src="img/9.png" class="pic">
+            </div>
+            <div class="content">
+                <p class="name">얼큰한 꽃게탕</p>
+                소비자가 : <span class="sale">14,900원</span>
+                <br>
+                <span class="price">11,900원</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <img src="img/sale.png" class="saleimg">
+                <img src="img/new.png" class="newimg">
+                <img src="img/10.png" class="pic">
+            </div>
+            <div class="content">
+                <p class="name">뜨끈한 쌀국수</p>
+                소비자가 : <span class="sale">10,900원</span>
+                <br>
+                <span class="price">8,900원</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <img src="img/new.png" class="newimg">
+                <img src="img/11.png" class="pic">
+            </div>
+            <div class="content">
+                <p class="name">베이컨 야채말이</p>
+                <span class="price">13,900원</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <img src="img/12.png" class="pic">
+            </div>
+            <div class="content">
+                <p class="name">사천식 마라샹궈</p>
+                <span class="price">13,900원</span>
+            </div>
+        </div>
     </div>
+    <div class="basket">
+        <div class="basket_top">
+            <span>장바구니</span> 
+        </div>
+        <div class="basket_content">
+            <span>상품이<br>없습니다</span>
+        </div>
+        <button class="basket_buy">구매하기</button>
+    </div>
+</section>
+</main>
 </body>
 
 </html>

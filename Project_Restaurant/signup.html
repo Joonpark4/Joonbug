@@ -12,9 +12,39 @@
     <script>
         // 제이쿼리 사용 준비문 절대 빼먹지 말자
         $(document).ready(function () {
-            $("#tab div").on("click", function () {
+            $("#owner").on("click", function () {
+                if (!$(this).hasClass('selected')) {
+                    $(".infor").prepend('<div class="tx item new-tag"><input type="text" class="textbox" placeholder="사업자 등록번호"></div>');
+                    $(".infor").prepend('<div class="tx item new-tag"><input type="text" class="textbox" placeholder="상호명"></div>');
+                    $("#container").stop().animate({
+                        height: "670px",
+                    }, 500);
+                    $("#bottom").stop().animate({
+                        height: "604px",
+                    }, 500);
+                    $("#content").stop().animate({
+                        height: "539px",
+                    }, 500);
+                }
+            });
+
+            $("#customer").on("click", function () {
+                if (!$(this).hasClass('selected')) {
+                    $(".new-tag").stop().remove();
+                    $("#container").stop().animate({
+                        height: "566px",
+                    }, 500);
+                    $("#bottom").stop().animate({
+                        height: "500px",
+                    }, 500);
+                    $("#content").stop().animate({
+                        height: "435px",
+                    }, 500);
+                }
+            });
+            $(".tab div").on("click", function () {
                 $(this).addClass('selected');
-                $("#tab div").not(this).removeClass('selected');
+                $(".tab div").not(this).removeClass('selected');
             });
         });
         // 아래 함수들은 제이쿼리 사용 준비문 안에 넣지 말것
@@ -39,7 +69,7 @@
             justify-content: center;
             /* 바디의 높이를 100% 뷰포트로 정해주지 않으면 내부 컨텐츠크기에 
             딱 맞춰 높이가 설정되므로 align-item 중앙정렬이 의미 없어짐 */
-            align-items: center;
+            /* align-items: center; */
             height: 100vh;
         }
 
@@ -53,6 +83,7 @@
             text-align: center;
             box-shadow: 6px 6px 25px 1px gray;
             border-radius: 15px;
+            
         }
 
         h2 {
@@ -60,46 +91,47 @@
             padding-bottom: 5px;
         }
 
-        #tab {
+        .tab {
             display: flex;
             justify-content: space-evenly;
         }
 
-        #tab div {
+        .tab div {
             padding: 15px 60px;
             border-radius: 15px;
             cursor: pointer;
             font-size: 18px;
+            /* margin: 0px; */
         }
 
-        #tab div:hover {
+        .tab div:hover {
             text-decoration: overline 3px;
         }
 
-        .bottom {
+        #bottom {
             position: relative;
             background-color: #fb8c00;
             width: 430px;
             height: 500px;
             left: 50%;
-            transform: translate(-50%, -4%);
+            margin-top: -13px;
+            transform: translate(-50%, 0%);
             border-radius: 15px;
         }
 
-        .content {
+        #content {
             position: relative;
             background-color: white;
             width: 370px;
             height: 435px;
             left: 50%;
             top: 50%;
-            margin-top: 5px;
             transform: translate(-50%, -50%);
             border-radius: 15px;
             padding: 20px;
         }
 
-        #infor {
+        .infor {
             display: flex;
             flex-wrap: wrap;
         }
@@ -148,18 +180,15 @@
             cursor: pointer;
         }
 
-        #email1,
-        #email2 {
+        .email {
             width: 150px;
         }
 
-        #number1 {
+        .number1 {
             width: 70px;
         }
 
-        #number2,
-        #number3,
-        #number4 {
+        .number2 {
             width: 50px;
         }
 
@@ -215,18 +244,17 @@
         <div class="top">
             <h2>회원 가입</h2>
         </div>
-        <!-- this를 매개변수로 주지 않으면 안됨 : 함수 내 this로 처리하면 그 윈도우를 this로 받아버리는 상황 발생 -->
-        <div id="tab">
-            <div class="selected">개인회원</div>
-            <div>사장님</div>
+        <div class="tab">
+            <div class="selected" id="customer">개인회원</div>
+            <div id="owner">사장님</div>
         </div>
-        <div class="bottom">
-            <div class="content">
-                <div id="infor">
-                    <div class="tx item">
+        <div id="bottom">
+            <div id="content">
+                <div class="infor">
+                    <div class="tx item" id="id_text">
                         <input type="text" class="textbox" placeholder="아이디">
                     </div>
-                    <div class="btn item" id="id_check"><button onclick="mg_id()">ID 중복확인</button></div>
+                    <div class="btn item"><button onclick="mg_id()">ID 중복확인</button></div>
                     <div class="tx item">
                         <input type="password" class="textbox" placeholder="비밀번호">
                     </div>
@@ -234,7 +262,7 @@
                         <input type="password" class="textbox" placeholder="비밀번호 확인">
                     </div>
                     <div class="clear"></div>
-                    <div class="tx item" id="number1">
+                    <div class="tx item number1">
                         <select class="textbox2">
                             <option>통신사</option>
                             <option>SKT</option>
@@ -243,26 +271,25 @@
                             <option>알뜰폰</option>
                         </select>
                     </div>
-                    <div class="tx item" id="number2">
+                    <div class="tx item number2">
                         <input type="text" class="textbox3" placeholder="010">
                     </div>
                     <p style="line-height: 3;">-</p>
-                    <div class="tx item" id="number3">
+                    <div class="tx item number2">
                         <input type="text" class="textbox3" placeholder="1234">
                     </div>
                     <p style="line-height: 3;">-</p>
-                    <div class="tx item" id="number4">
+                    <div class="tx item number2">
                         <input type="text" class="textbox3" placeholder="5678">
                     </div>
                     <div class="tx item">
                         <input type="text" class="textbox" placeholder="이름">
                     </div>
-                    <div class="tx item" id="email1">
+                    <div class="tx item email">
                         <input type="text" class="textbox" placeholder="이메일">
                     </div>
-                    <!-- 글자가 1줄일 경우 line-height 줄간격 조정 태그로 글자 높이 조정 가능 -->
                     <p style="line-height: 3;">@</p>
-                    <div class="tx item" id="email2">
+                    <div class="tx item email">
                         <select class="textbox2">
                             <option>선택하기</option>
                             <option>naver.com</option>

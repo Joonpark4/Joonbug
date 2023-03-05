@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <!-- <script src="..\jquery-3.6.3.min.js"></script> -->
+    <link rel="stylesheet" href="login_signup.css">
+    <script>
+        $(document).ready(function () {
+    $("#owner").on("click", function () {
+        if (!$(this).stop().hasClass('selected')) {
+            $(".infor").prepend('<div class="tx item new-tag"><input type="text" class="textbox" placeholder="사업자 등록번호"></div>');
+            $(".infor").prepend('<div class="tx item new-tag"><input type="text" class="textbox" placeholder="상호명"></div>');
+            $("#container").stop().animate({
+                height: "670px",
+            }, 500);
+            $("#bottom").stop().animate({
+                height: "604px",
+            }, 500);
+            $("#content").stop().animate({
+                height: "539px",
+            }, 500);
+        }
+    });
+
+    $("#customer").on("click", function () {
+        if (!$(this).hasClass('selected')) {
+            $(".new-tag").stop().remove();
+            $("#container").stop().animate({
+                height: "566px",
+            }, 500);
+            $("#bottom").stop().animate({
+                height: "500px",
+            }, 500);
+            $("#content").stop().animate({
+                height: "435px",
+            }, 500);
+        }
+    });
+    $(".tab div").on("click", function () {
+        $(this).addClass('selected');
+        $(".tab div").not(this).removeClass('selected');
+    });
+});
+// 아래 함수들은 제이쿼리 사용 준비문 안에 넣지 말것
+function mg_id() {
+    alert("이미 존재하는 ID 입니다. 다른 ID를 선택하세요.");
+}
+function mg_yet() {
+    alert("아직 준비중인 기능입니다.");
+}
+function mg_idck_first() {
+    alert("ID 중복확인을 먼저 해주세요.");
+}
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <div class="top">
+            <h2>회원 가입</h2>
+        </div>
+        <div class="tab">
+            <div class="selected" id="customer">개인회원</div>
+            <div id="owner">사장님</div>
+        </div>
+        <div id="bottom">
+            <div id="content">
+                <div class="infor">
+                    <div class="tx item" id="id_text">
+                        <input type="text" class="textbox" placeholder="아이디">
+                    </div>
+                    <div class="btn item"><button onclick="mg_id()">ID 중복확인</button></div>
+                    <div class="tx item">
+                        <input type="password" class="textbox" placeholder="비밀번호">
+                    </div>
+                    <div class="tx item">
+                        <input type="password" class="textbox" placeholder="비밀번호 확인">
+                    </div>
+                    <div class="clear"></div>
+                    <div class="tx item number1">
+                        <select class="textbox2">
+                            <option>통신사</option>
+                            <option>SKT</option>
+                            <option>KT</option>
+                            <option>LG U+</option>
+                            <option>알뜰폰</option>
+                        </select>
+                    </div>
+                    <div class="tx item number2">
+                        <input type="text" class="textbox3" placeholder="010">
+                    </div>
+                    <p style="line-height: 3;">-</p>
+                    <div class="tx item number2">
+                        <input type="text" class="textbox3" placeholder="1234">
+                    </div>
+                    <p style="line-height: 3;">-</p>
+                    <div class="tx item number2">
+                        <input type="text" class="textbox3" placeholder="5678">
+                    </div>
+                    <div class="tx item">
+                        <input type="text" class="textbox" placeholder="이름">
+                    </div>
+                    <div class="tx item email">
+                        <input type="text" class="textbox" placeholder="이메일">
+                    </div>
+                    <p style="line-height: 3;">@</p>
+                    <div class="tx item email">
+                        <select class="textbox2">
+                            <option>선택하기</option>
+                            <option>naver.com</option>
+                            <option>daum.net</option>
+                            <option>gmail.com</option>
+                            <option>yahoo.com</option>
+                        </select>
+                    </div>
+                    <div class="tx item">
+                        <input type="text" class="textbox" placeholder="주소 입력">
+                    </div>
+                    <div class="btn item" id="btn_address"><button onclick="mg_yet()">주소 찾기</button></div>
+                    <div class="tx item" id="address">
+                        <input type="text" class="textbox" placeholder="상세 주소">
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div id="join">
+                    <button type="submit" class="btn" onclick="location.href='login.html';">취소</button>
+                    <button type="submit" class="btn" onclick="mg_idck_first()">회원 가입</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
