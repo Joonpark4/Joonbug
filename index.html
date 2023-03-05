@@ -1,9 +1,132 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Hello World</title>
+    <title>Joon's Man cave</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <!-- <script src="..\jquery-3.6.3.min.js"></script> -->
+    <style>
+        main {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        .container {
+            top: 10%;
+            width: 80%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .item {
+            margin: 15px;
+            width: 250px;
+            border: 2px solid black;
+        }
+
+        /* 이미지 사진 크기 조절 */
+        .pic {
+            width: 250px;
+            height: 250px;
+        }
+
+        /* 이름 볼드처리 */
+        .name {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* 사용된 언어 */
+        .language {
+            font-weight: bold;
+            color: black;
+        }
+
+        .language::before {
+            content: "사용 언어 : ";
+        }
+
+        /* 사용한 주요 스킬 */
+        .price {
+            font-size: 12px;
+            font-weight: bold;
+            color: #fb8c00;
+        }
+
+        .price::before {
+            content: "주요 스킬 : ";
+        }
+
+        .content {
+            margin: 10px;
+        }
+
+        /* 
+        .saleimg,
+        .newimg {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            float: left;
+            filter: drop-shadow(2px 2px 2px gray);
+        }
+
+        .newimg {
+            transform: translate(390%, 0%);
+        } */
+
+        p {
+            margin: 5px 0px 5px 0px;
+        }
+    </style>
 </head>
+
 <body>
-    <div style="width: 150px; height: 150px; background: black;"></div>
+    <div class="container">
+        <div class="item">
+            <div class="image">
+                <!-- <img src="img/sale.png" class="saleimg">
+                <img src="img/new.png" class="newimg"> -->
+                <img src="img/cube.jpg" class="pic">
+            </div>
+            <div class="content">
+                <p class="name" onclick="window.open('링크 주소');">3D 환경 구축</p>
+                <span class="language">HTML, CSS</span>
+                <br>
+                <span class="price">perspective, preserve-3d</span>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="image">
+                <!-- <img src="img/sale.png" class="saleimg"> -->
+                <img src="img/box.jpg" class="pic">
+            </div>
+            <div class="content">
+                <p class="name">박스깨기 게임</p>
+                <span class="language">HTML, CSS, Javascript</span>
+                <br>
+                <span class="price">querySelector, setInterval</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <!-- <img src="img/sale.png" class="saleimg">
+                <img src="img/new.png" class="newimg"> -->
+                <img src="img/login.jpg" class="pic">
+            </div>
+            <div class="content">
+                <p class="name">로그인, 회원가입화면</p>
+                <span class="language">HTML, CSS, Jquery</span>
+                <br>
+                <span class="price">Modal, animate, flex</span>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
