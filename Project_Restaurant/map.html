@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/map.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/map.css">
     <title>HTML</title>
     <script src="https://code.jquery.com/jquery-3.6.3.js"
         integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
@@ -13,10 +13,10 @@
         $(document).ready(function () {
             $("#sujungGu").on("click", function () {
                 var $clickedImg = $(this);
-                $("#container img").removeClass('hovo');
+                $("#Map_container img").removeClass('Map_hovo');
                 // 함수 실행 방법 : 함수명(매개변수);
                 right_sujung(1000);
-                $("#container img").not($clickedImg).animate({
+                $("#Map_container img").not($clickedImg).animate({
                     width: '0%',
                     height: '0%',
                     opacity: 0
@@ -31,9 +31,9 @@
             });
             $("#jungwonGu").on("click", function () {
                 var $clickedImg = $(this);
-                $("#container img").removeClass('hovo');
+                $("#Map_container img").removeClass('Map_hovo');
                 right_jungwon(1000);
-                $("#container img").not($clickedImg).animate({
+                $("#Map_container img").not($clickedImg).animate({
                     width: '0%',
                     height: '0%',
                     opacity: 0
@@ -48,9 +48,9 @@
             });
             $("#bundangGu").on("click", function () {
                 var $clickedImg = $(this);
-                $("#container img").removeClass('hovo');
+                $("#Map_container img").removeClass('Map_hovo');
                 right_bundang(1000);
-                $("#container img").not($clickedImg).animate({
+                $("#Map_container img").not($clickedImg).animate({
                     width: '0%',
                     height: '0%',
                     opacity: 0
@@ -274,10 +274,10 @@
                 }
             });
         });
-        
+
 
         function rewind() {
-            $("#container img").animate({
+            $("#Map_container img").animate({
                 width: '100%',
                 height: '100%',
                 opacity: '1'
@@ -294,18 +294,18 @@
             }, 1000);
             // Use promise() method to wait for all animations to finish
             // promise() 메소드와 done(function()) 메소드를 함께 사용할 경우 이 함수가 모두 끝나기까지 기다린 후 다음을 실행한다.
-            $("#container img").promise().done(function () {
-                $("#container img").addClass('hovo');
+            $("#Map_container img").promise().done(function () {
+                $("#Map_container img").addClass('Map_hovo');
             });
             right_close(1000);
-            $("input:checkbox").prop("checked", false);
-            $('#pin img').hide();
+            $("#Map input:checkbox").prop("checked", false);
+            $('#Map_pin img').hide();
         }
 
-        function right_sujung(time) {$("#sujung2").slideDown(time);}
-        function right_jungwon(time) {$("#jungwon2").slideDown(time);}
-        function right_bundang(time) {$("#bundang2").slideDown(time);}
-        function right_close(time) {$(".right").slideUp(time);}
+        function right_sujung(time) { $("#sujung2").slideDown(time); }
+        function right_jungwon(time) { $("#jungwon2").slideDown(time); }
+        function right_bundang(time) { $("#bundang2").slideDown(time); }
+        function right_close(time) { $(".Map_right").slideUp(time); }
 
     </script>
     <style>
@@ -314,13 +314,13 @@
 </head>
 
 <body>
-    <button onclick="rewind()" class="rewind">첫 화면</button>
-    <div id="container">
-        <div id="sujung1"><img src="map\\sujungGu.png" id="sujungGu" class="hovo"></div>
-        <div id="jungwon1"><img src="map\\jungwonGu.png" id="jungwonGu" class="hovo"></div>
-        <div id="bundang1"><img src="map\\bundangGu.png" id="bundangGu" class="hovo"></div>
+    <button onclick="rewind()" class="Map_rewind">첫 화면</button>
+    <div id="Map_container">
+        <div id="sujung1"><img src="map\\sujungGu.png" id="sujungGu" class="Map_hovo"></div>
+        <div id="jungwon1"><img src="map\\jungwonGu.png" id="jungwonGu" class="Map_hovo"></div>
+        <div id="bundang1"><img src="map\\bundangGu.png" id="bundangGu" class="Map_hovo"></div>
     </div>
-    <div id="pin">
+    <div id="Map_pin">
         <div id="pin_sujung">
             <img src="map\\pin.png" id="pin_shiheung">
             <img src="map\\pin.png" id="pin_godeung">
@@ -358,7 +358,7 @@
         </div>
     </div>
 
-    <div id="sujung2" class="right">
+    <div id="sujung2" class="Map_right">
         <h3>
             <center>수정구</center>
         </h3>
@@ -375,7 +375,7 @@
             <li><input type="checkbox" id="yangzi">양지동</li>
         </ul>
     </div>
-    <div id="jungwon2" class="right">
+    <div id="jungwon2" class="Map_right">
         <h3>
             <center>중원구</center>
         </h3>
@@ -389,7 +389,7 @@
             <li><input type="checkbox" id="dochon">도촌동</li>
         </ul>
     </div>
-    <div id="bundang2" class="right">
+    <div id="bundang2" class="Map_right">
         <h3>
             <center>분당구</center>
         </h3>

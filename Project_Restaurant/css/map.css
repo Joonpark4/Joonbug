@@ -1,15 +1,22 @@
-#container {
+#Map{
+    position:relative;
+}
+#Map_container {
     float: left;
+    width: 100%; height: 100%;
+    position:relative;
 }
 
-#container div {
+#Map_container div {
     position: absolute;
+    z-index: 2;
 }
 
 /* img의 크기를 div에 꽉 채워주도록 함 */
 /* 원래 width : 100%, height : 100% 였으나, 화면이 줄어들면 찌그러지는 특징이 있었음
 이를 object-fit으로 해결 */
-img {
+#Map_container img,
+#Map_pin img {
     object-fit: cover;
     filter: drop-shadow(0px 0px 2px black);
 }
@@ -48,52 +55,53 @@ img {
     transition: 500ms;
 } */
 /* 클래스가 부여된 대상에만 호버 이벤트를 발생시킴 */
-.hovo:hover {
+.Map_hovo:hover {
     filter: drop-shadow(10px 10px 15px black);
     transform: translate(-10px, -10px);
     transition: 500ms;
     cursor: pointer;
 }
-.right {
+.Map_right {
     position: absolute;
     top: 5px;
     left: 500px;
     width: 230px;
-    /* background : linear-gradient(125deg, #FAE3D2, #FDCEC8, #E3C0B3); */
+    background : linear-gradient(125deg, #FAE3D2, #FDCEC8, #E3C0B3);
 
     display: none;
     text-align: center;
     border-radius: 10px;
-    /* filter: drop-shadow(1px 1px 1px black); */
+    filter: drop-shadow(1px 1px 1px black);
 }
-h3{
+.Map_right h3{
     margin: 5px;padding: 0;
 }
 
-.right ul{
+.Map_right ul{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-left: -5px;
 }
 
-li {
+.Map_right li {
     list-style-type: none;
     margin: 5px 7px 10px 5px;
     font-size: 20px;
 }
 
-ul {
+.Map_right ul {
     text-align: center;
     margin: 0;
     padding: 0;
 }
 
-#pin img {
+#Map_pin img {
     position: absolute;
     display: none;
     width: 25px;
     height: 25px;
+    z-index: 5;
 }
 /* 수정구 */
 #pin_shiheung {
@@ -236,7 +244,7 @@ ul {
     left: 400px;
 }
 
-.rewind{
+.Map_rewind{
     width: 115px;
     margin: 9px 0px 0px 0px;
     padding: 5px 15px 5px 15px;
@@ -244,13 +252,13 @@ ul {
     border-color: #fb8c00;
     background-color: white;
     cursor: pointer;
-    z-index: 3;
+    z-index: 5;
     font-weight: bold;
     position: absolute;
     top: 20px;
     left: 20px;
 }
-.rewind:hover{
+.Map_rewind:hover{
     background-color: #ffccbc;
 }
 
@@ -282,6 +290,6 @@ ul {
     animation-timing-function: ease-in-out;
     animation-iteration-count: 1;
 }
-input[type=checkbox]{
+.Map_right input[type=checkbox]{
     width: 20px; height: 20px;
 }
