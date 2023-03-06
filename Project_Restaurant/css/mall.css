@@ -1,0 +1,119 @@
+        /* 전체 화면 초기화 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 상단 메뉴와 배너 예시 이미지 띄우기 */
+        .topmenu img,
+        .banner img {
+            width: 100%;
+        }
+
+        /* 메인에 따로 플렉스를 준 이유는 메뉴는 왼쪽으로 정렬하고, 컨테이너와 장바구니는 서로 붙이고 싶기 때문이다
+        노랩을 한 이유는 아무리 윈도우창을 줄여도 아래 배치한 레이아웃이 내려가지 않게 하기 위함이다 */
+        main {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        /* 왼쪽 메뉴바 12%로 설정*/
+        aside {
+            width: 150px;
+        }
+
+        /* 섹션에 플렉스를 주어서 컨테이너(container)와 장바구니를 최대한 붙여 중앙으로 가져오기 */
+        section {
+            width: 95%;
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        /* 컨테이너 내 아이템(상품)들을 이쁘게 배치하기 위해 플렉스 부여 */
+        .container {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* 각각의 상품들, 각 상품을 중앙으로 옹기종기 모이게 했으므로 마진을 주어 띄우기  */
+        .item {
+            margin: 15px;
+            width: 250px;
+        }
+
+        /* 이미지 사진 크기 조절 */
+        .pic {
+            width: 250px;
+            height: 250px;
+        }
+
+        /* 세일가격, 취소선 */
+        .sale {
+            text-decoration-line: line-through;
+        }
+
+        /* 상품 이름 볼드처리 */
+        .name {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #fb8c00;
+        }
+
+        .price::before {
+            content: "판매가 : ";
+        }
+
+        .content {
+            margin: 10px;
+        }
+
+        .saleimg,
+        .newimg {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            float: left;
+            filter: drop-shadow(2px 2px 2px gray);
+        }
+
+        .newimg {
+            transform: translate(390%, 0%);
+        }
+
+        p {
+            margin: 5px 0px 5px 0px;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            padding: 5px;
+            margin: 5px;
+            background-color: lightskyblue;
+            border: 2px solid black;
+        }
+
+        #food2,
+        #stuff2 {
+            display: none;
+        }
+
+        .selected {
+            background-color: orange;
+        }
+
+        .menu {
+            background-color: #ffccbc;
+        }
+
+        .tap {
+            padding: 10px;
+        }

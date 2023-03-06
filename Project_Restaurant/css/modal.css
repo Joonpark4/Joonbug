@@ -34,7 +34,7 @@ p {
 }
 .popup {
     width: 100%;
-    max-width: 250px;
+    max-width: 280px;
     border-radius: 10px;
     overflow: hidden;
     background-color: #fb8c00;
@@ -60,7 +60,7 @@ p {
 }
 .body-content {
     width: 100%;
-    padding: 10px 5px 20px 5px;
+    padding: 10px 0px 20px 0px;
 }
 .body-titlebox {
     text-align: center;
@@ -71,6 +71,7 @@ p {
 .body-contentbox {
     word-break: break-word;
     overflow-y: auto;
+    text-align: center;
     min-height: 50px;
     max-height: 200px;
 }
