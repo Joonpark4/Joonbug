@@ -1,8 +1,8 @@
         /* 전체 화면 초기화 */
-        * {
+        /* * {
             margin: 0;
             padding: 0;
-        }
+        } */
 
         /* 상단 메뉴와 배너 예시 이미지 띄우기 */
         .topmenu img,
@@ -10,11 +10,21 @@
             width: 100%;
         }
 
+        .banner{
+            width: 100vw;
+            text-align: center;
+        }
+        .banner img{
+            width: 90vw;
+            text-align: center;
+        }
+
         /* 메인에 따로 플렉스를 준 이유는 메뉴는 왼쪽으로 정렬하고, 컨테이너와 장바구니는 서로 붙이고 싶기 때문이다
         노랩을 한 이유는 아무리 윈도우창을 줄여도 아래 배치한 레이아웃이 내려가지 않게 하기 위함이다 */
         main {
             display: flex;
             flex-wrap: nowrap;
+            margin-top: 100px;
         }
 
         /* 왼쪽 메뉴바 12%로 설정*/
@@ -94,7 +104,7 @@
             list-style-type: none;
         }
 
-        li {
+        .mallMenuItem {
             padding: 5px;
             margin: 5px;
             background-color: lightskyblue;

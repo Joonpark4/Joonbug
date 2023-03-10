@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <!-- <script src="..\jquery-3.6.3.min.js"></script> -->
+
+    <style>
+    </style>
+</head>
+<body>
+    <script>
+        function calcSum(n){
+            let sum = 0;
+            for(let i = 1; i <= n; i++){
+                sum += i;
+            }
+            return sum;
+        }
+        let num = parseInt(prompt("몇까지 더할까요?"));
+        document.write(`1부터 ${num}까지 더하면 ${calcSum(num)}입니다.`);
+        // return문
+        // 함수 안에서 실행하고 그 결과를 함수 밖에서 받아 처리할 경우 사용
+        // 함수의 실행 결과를 함수를 실행한 시점으로 넘겨주는 것을 'return'이라 한다.
+        // 함수를 실행한 후 결과를 반환할때는 예약어 return 다음에 넘겨줄 값이나 변수를 지정한다.
+    </script>
+</body></html>

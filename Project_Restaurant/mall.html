@@ -29,13 +29,16 @@
             $("#newtap").on("click", function () {
                 $(".item").show();
                 $(".item:not(:has(.newimg))").hide();
+                $(".banner img").attr("src","img/banner_new.jpg")
             });
             $("#saletap").on("click", function () {
                 $(".item").show();
                 $(".item:not(:has(.saleimg))").hide();
+                $(".banner img").attr("src","img/banner_sale.jpg")
             });
             $("#alltap").on("click", function () {
                 $(".item").show();
+                $(".banner img").attr("src","img/banner_all.jpg")
             });
 
             // 그 외 aside영역 내 list 태그는 클릭시 아직 준비중이라는 모달창 띄우기 (id를 가지지 않은 list)
@@ -57,34 +60,35 @@
 </head>
 
 <body>
-    <div class="topmenu"><img src="img/033.jpg" alt=""></div>
-    <div class="banner"><img src="img/037.jpg" alt=""></div>
+    <div class="banner">
+        <img src="img/banner_all.jpg">
+    </div>
     <main>
         <aside>
             <div class="menu">
                 <div id="mealkit">
                     <div class="tap selected">밀키트</div>
                     <ul id="mealkit2" class="list">
-                        <li id="newtap">신 상품</li>
-                        <li id="saletap">할인 상품</li>
-                        <li id="alltap">전체 보기</li>
+                        <li class="mallMenuItem" id="newtap">신 상품</li>
+                        <li class="mallMenuItem" id="saletap">할인 상품</li>
+                        <li class="mallMenuItem" id="alltap">전체 보기</li>
                     </ul>
                 </div>
                 <div id="food">
                     <div class="tap">식품</div>
                     <ul id="food2" class="list">
-                        <li>신선야채</li>
-                        <li>육류</li>
-                        <li>생선</li>
-                        <li>유제품</li>
+                        <li class="mallMenuItem">신선야채</li>
+                        <li class="mallMenuItem">육류</li>
+                        <li class="mallMenuItem">생선</li>
+                        <li class="mallMenuItem">유제품</li>
                     </ul>
                 </div>
                 <div id="stuff">
                     <div class="tap">조리용품</div>
                     <ul id="stuff2" class="list">
-                        <li>프라이팬/웍</li>
-                        <li>냄비/소스팬</li>
-                        <li>오븐용품</li>
+                        <li class="mallMenuItem">프라이팬/웍</li>
+                        <li class="mallMenuItem">냄비/소스팬</li>
+                        <li class="mallMenuItem">오븐용품</li>
                     </ul>
                 </div>
             </div>
@@ -97,7 +101,7 @@
                         <img src="img/1.png" class="pic">
                     </div>
                     <div class="content">
-                        <p class="name">쌈채소와 야채샌드위치</p>
+                        <p class="name">밀푀유 샤브전골</p>
                         소비자가 : <span class="sale">12,900원</span>
                         <br>
                         <span class="price">9,900원</span>
@@ -118,7 +122,7 @@
                         <img src="img/2.png" class="pic">
                     </div>
                     <div class="content">
-                        <p class="name">김치 돼지찌개</p>
+                        <p class="name">돼지고기 김치찜</p>
                         소비자가 : <span class="sale">12,900원</span>
                         <br>
                         <span class="price">9,900원</span>
@@ -131,7 +135,7 @@
                         <img src="img/3.png" class="pic">
                     </div>
                     <div class="content">
-                        <p class="name">소고기 볶음면</p>
+                        <p class="name">사와디캅 팟타이</p>
                         소비자가 : <span class="sale">12,900원</span>
                         <br>
                         <span class="price">9,900원</span>
@@ -153,7 +157,7 @@
                         <img src="img/4.png" class="pic">
                     </div>
                     <div class="content">
-                        <p class="name">우동 볶음면</p>
+                        <p class="name">소고기 야끼우동</p>
                         <span class="price">7,900원</span>
                     </div>
                 </div>
@@ -184,7 +188,7 @@
                         <img src="img/6.png" class="pic">
                     </div>
                     <div class="content">
-                        <p class="name">와규 스테이크</p>
+                        <p class="name">부채살 스테이크</p>
                         <span class="price">13,900원</span>
                     </div>
                 </div>
@@ -194,7 +198,7 @@
                         <img src="img/7.png" class="pic">
                     </div>
                     <div class="content">
-                        <p class="name">칼칼한 갈치알탕</p>
+                        <p class="name">대구탕</p>
                         <span class="price">13,900원</span>
                     </div>
                 </div>

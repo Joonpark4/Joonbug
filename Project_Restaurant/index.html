@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <link rel="stylesheet" href="css/map.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>it-da!</title>
+</head>
+
+<style>
+    * {
+        font-family: "을지로";
+    }
+
+    body {
+        margin: 0;
+    }
+
+    .con {
+        height: 100%;
+    }
+
+    .con3 {
+        /* border: 1px solid yellow; */
+        height: 500px;
+        position: relative;
+        /* background-color: aquamarine; */
+        margin-bottom: 2px;
+        width: 750px;
+        color: #ff792a;
+    }
+
+    .con4 {
+        margin-top: 2px;
+        border-color: green;
+        height: 500px;
+        font-size: 14px;
+        font-family: "Nato Sans";
+        width: 25%;
+        color: #ff792a;
+        width: 250px;
+        justify-items: left;
+    }
+
+    .con7 {
+        margin-top: 2px;
+        border-color: green;
+        height: 500px;
+        font-size: 14px;
+        font-family: "Nato Sans";
+        width: 25%;
+        color: #ff792a;
+        width: 250px;
+        align-items: center;
+    }
+
+    .conn3 {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .conn3>div {
+        margin: 0 10px;
+    }
+
+    h3 {
+        background: #eee;
+        /* display: block; */
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .swipe_milkit {
+        margin-top: 2px;
+        /* border-color: green; */
+        height: 400px;
+        /* background-color: rgb(74, 85, 74); */
+    }
+
+    .swipe_youtube {
+        margin-top: 2px;
+        /* border-color: green; */
+        height: 400px;
+        /* background-color: rgb(74, 85, 74); */
+    }
+
+    .con6 {
+        margin-top: 2px;
+        height: 500px;
+        /* background-color: rgb(155, 51, 146); */
+    }
+
+    .shuffle {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    footer {
+        width: 1080px;
+        height: 310px;
+        margin: auto;
+        padding: 0 8px 0 8px;
+        display: flex;
+        flex-direction: column;
+        font-size: 12px;
+    }
+
+    .notice_box {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #f1f3f6;
+    }
+
+    .notice_box>a {
+        font-weight: bold;
+        color: black;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .bottom_box {
+        flex: 3;
+        padding-top: 20px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .bottom_box ul>li {
+        display: inline-block;
+        margin-left: 8px;
+    }
+
+    /* 
+    .bottom_box ul>li>a {
+        text-decoration: none;
+        color: black;
+    } */
+
+    .mg {
+        margin-left: 100px;
+        margin-right: 200px;
+    }
+
+    #Map h3 {
+        background-color: white;
+    }
+
+    #Map {
+        color: black;
+    }
+</style>
+<script>
+    //랜덤 문자열
+    const storeName = [
+        "30년 전통 맛집",
+        "50년 전통 맛집",
+        "할머니 손 맛집",
+        "엄마 손 맛집",
+        "상준이네",
+        "철준이네",
+        "주홍이네",
+        "현승이네",
+        "동메꽃",
+        "이매 기사식당",
+        "판교 기사식당",
+        "야탑 기사식당",
+        "점심 천국",
+        "원조 할매집",
+        "원조 할배집",
+    ];
+
+    const place = [
+        "구미동 | 미금역",
+        "구미동 | 미금역",
+        "금곡동 | 미금역",
+        "구미1동 | 미금역",
+        "구미동 | 동천역",
+        "죽전2동 | 동천역",
+        "정자동 | 정자역",
+        "보정동 | 죽전역",
+        "백현동 | 판교역",
+        "삼평동 | 판교역",
+        "이매1동 | 이매역",
+        "서현1동 | 서현역",
+        "성남동 | 모란역",
+        "수진동 | 수진역",
+        "신흥동 | 신흥역",
+    ];
+
+    const userComment = [
+        `"단체석도 있어서 회식하기 아주 좋았습니다."`,
+        `"양도 많고 맛도 좋아서 가성비 아주 훌륭하네요 !"`,
+        `"김치 맛집입니다! 직접 담그시나봐요"`,
+        `"유튜버 추천 유명한 맛집답게 사람이 북적거려서 바쁜 시간대는 피하는게 좋겠네요ㅠ 그래도 기다린 보람이 있었습니다"`,
+        `"1시간의 웨이팅을 뚫고 방문. 맛은 무난무난했지만, 가격과 양을 생각하면 대적불가! 재발문 의사 O"`,
+        `"근처에서 점심 먹을 때 간단하게 먹기 좋은 집. 사장님도 매우 친절하심"`,
+        `"보통 여느 가게면 혼자서 뚝딱 하는데 굉장히 푸짐하네요ㅎㅎ"`,
+        `"신선한 재료, 맛, 구성, 친절도 모두 대만족입니다"`,
+        `"리뉴얼로 내부 인테리어도 깔끔해지고 더 청결해진 것 같아요!"`,
+        `"음식은 전체적으로 만족스러웠습니다 가격이 살짝 있는데 요즘 물가 생각하면 괜찮은 것 같아요 재방문 의사 90%"`,
+        `"회사 근처에 이런 맛집이 있었다니.. 깜짝 놀랬어요. 줄이 어마어마하더라는 :) "`,
+        `"가난한 학생인데 여기 맛도 괜찮고 양도 푸짐해서 매일 가고 있습니다."`,
+        `"엄마가 예전에 해주셨던 맛이나네요 그리워서 계속 가게 됩니다"`,
+        `"오랜만에 방문했는데 역시나 가격 혜자스럽습니다. 새로운 메뉴도 늘었던데 믿고 시킵니다 ㅎㅎ"`,
+        `"와썹맨에도 나왔던 혜자스러운 가성비로 제가 방문했을땐 방송때보다 천원 올랐지만 여전히 저렴해 맘에 들었습니다"`,
+    ];
+
+    const score = [
+        "88점 ★4.4(65명) ♡ 83",
+        "89점 ★4.6(165명) ♡ 603",
+        "94점 ★4.8(2456명) ♡ 8603",
+        "97점 ★4.7(412명) ♡ 639",
+        "99점 ★4.9(1290명) ♡ 5956",
+        "98점 ★4.8(1065명) ♡ 7013",
+        "89점 ★4.1(620명) ♡ 503",
+        "85점 ★4.3(452명) ♡ 593",
+        "83점 ★4.2(94명) ♡ 800",
+        "90점 ★4.7(1001명) ♡ 4099",
+        "90점 ★4.6(1705명) ♡ 5904",
+        "96점 ★4.8(265명) ♡ 301",
+        "92점 ★4.6(3363명) ♡ 10985",
+        "83점 ★4.0(2165명) ♡ 9059",
+        "87점 ★4.2(4665명) ♡ 31592",
+    ];
+
+    const merit = [
+        `"역에서 가까워요"`,
+        `"역에서 가까워요"`,
+        `"런치 할인이 있어요"`,
+        `"런치 할인이 있어요"`,
+        `"친절해요!"`,
+        `"친절해요!"`,
+        `"음식이 빨리 나와요!"`,
+        `"양이 푸짐해요!"`,
+        `"화장실이 깨끗해요!"`,
+        `"반찬 무한리필!"`,
+        `"반찬 무한리필!"`,
+        `"국내산 재료만 써요!"`,
+        `"국내산 재료만 써요!"`,
+        `"역에서 가까워요!"`,
+        `"예약 주문이 가능해요!"`,
+    ]
+
+    var hFoodImgs = [];
+    for (var i = 0; i < 30; i++) {
+        hFoodImgs[i] = `..//sangjun//foodImg/h${i + 1}.jpg`;
+    }
+    // 중식
+    var jFoodImgs = [];
+    for (var i = 0; i < 11; i++) {
+        jFoodImgs[i] = `..//sangjun/foodImg/j${i + 1}.jpg`;
+    }
+    //일식
+    var iFoodImgs = [];
+    for (var i = 0; i < 20; i++) {
+        iFoodImgs[i] = `..//sangjun/foodImg/i${i + 1}.jpg`;
+    }
+    //분식
+    var bFoodImgs = [];
+    for (var i = 0; i < 9; i++) {
+        bFoodImgs[i] = `..//sangjun/foodImg/b${i + 1}.jpg`;
+    }
+    //아시안푸드
+    var aFoodImgs = [];
+    for (var i = 0; i < 2; i++) {
+        aFoodImgs[i] = `..//sangjun/foodImg/a${i + 1}.jpg`;
+    }
+    //양식
+    var yFoodImgs = [];
+    for (var i = 0; i < 10; i++) {
+        yFoodImgs[i] = `..//sangjun/foodImg/y${i + 1}.jpg`;
+    }
+    // 배열 합치기
+    const foodImgs = [...hFoodImgs, ...jFoodImgs, ...iFoodImgs, ...bFoodImgs, ...aFoodImgs, ...yFoodImgs];
+
+    // 헤더 스크롤 위치에 따른 배경 변화
+    var Shop_name = document.getElementsByClassName("name");
+    var Shop_place = document.getElementsByClassName("place");
+    $(document).ready(function () {
+        // 테스트 영역입니다.
+
+        // height 값을 가져오기 위한 상수 대입
+        const header = document.getElementById("header-header");
+        const search_height = document.querySelector(".main_header");
+        const shortcut_height = document.querySelector(".shortcut");
+        const shortcut_margin_top = 30;
+        const header_change_height = (search_height.offsetHeight + shortcut_margin_top) - shortcut_height.offsetHeight;
+
+        // 첫 로딩부터 transparent가 들어가도록
+        header.classList.add("header_header--Transparent");
+
+        window.window.addEventListener("scroll", () => {
+            if (window.pageYOffset > header_change_height) {
+                header.classList.remove("header_header--Transparent");
+            } else {
+                header.classList.add("header_header--Transparent");
+            }
+        });
+
+        // 여기서부터는 맵 스크립트입니다
+        $("#sujungGu").on("click", function () {
+            var $clickedImg = $(this);
+            $("#Map_container img").removeClass('Map_hovo');
+            // 함수 실행 방법 : 함수명(매개변수);
+            right_sujung(1000);
+            $("#Map_container img").not($clickedImg).animate({
+                width: '0%',
+                height: '0%',
+                opacity: 0
+            }, 1000);
+            $clickedImg.parent().animate({
+                'left': '10px'
+            }, 1000);
+            $clickedImg.animate({
+                width: "190%",
+                height: "190%",
+            }, 1000);
+        });
+        $("#jungwonGu").on("click", function () {
+            var $clickedImg = $(this);
+            $("#Map_container img").removeClass('Map_hovo');
+            right_jungwon(1000);
+            $("#Map_container img").not($clickedImg).animate({
+                width: '0%',
+                height: '0%',
+                opacity: 0
+            }, 1000);
+            $clickedImg.parent().animate({
+                'left': '50px'
+            }, 1000);
+            $clickedImg.animate({
+                width: "235%",
+                height: "235%",
+            }, 1000);
+        });
+        $("#bundangGu").on("click", function () {
+            var $clickedImg = $(this);
+            $("#Map_container img").removeClass('Map_hovo');
+            right_bundang(1000);
+            $("#Map_container img").not($clickedImg).animate({
+                width: '0%',
+                height: '0%',
+                opacity: 0
+            }, 1000);
+            $clickedImg.parent().animate({
+                'top': '40px',
+                'left': '20px'
+            }, 1000);
+            $clickedImg.animate({
+                width: "180%",
+                height: "180%",
+            }, 1000);
+        });
+
+        // 수정구 체크박스
+        $('#shiheung').on('click', function () { // 시흥id를 가진 체크박스가 클릭될때 이벤트 발생
+            if ($(this).is(':checked')) { // 이게 체크가 되어있을 경우
+                $('#pin_shiheung').show().addClass('rotate-jump'); // 시흥핀을 보여주고 rotate-jump 클래스를 추가해줌
+            } else { // 체크가 해제되어 있을 경우
+                $('#pin_shiheung').removeClass('rotate-jump').hide(); // 시흥핀을 사라지게 하고 클래스도 없애줌
+            }
+        });
+        $('#godeung').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_godeung').show().addClass('rotate-jump');
+            } else {
+                $('#pin_godeung').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#shinchon').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_shinchon').show().addClass('rotate-jump');
+            } else {
+                $('#pin_shinchon').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#bokjung').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_bokjung').show().addClass('rotate-jump');
+            } else {
+                $('#pin_bokjung').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#sujin').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_sujin').show().addClass('rotate-jump');
+            } else {
+                $('#pin_sujin').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#taepyung').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_taepyung').show().addClass('rotate-jump');
+            } else {
+                $('#pin_taepyung').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#shinheung').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_shinheung').show().addClass('rotate-jump');
+            } else {
+                $('#pin_shinheung').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#sansung').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_sansung').show().addClass('rotate-jump');
+            } else {
+                $('#pin_sansung').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#dandae').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_dandae').show().addClass('rotate-jump');
+            } else {
+                $('#pin_dandae').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#yangzi').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_yangzi').show().addClass('rotate-jump');
+            } else {
+                $('#pin_yangzi').removeClass('rotate-jump').hide();
+            }
+        });
+
+        // 중원구 체크박스
+        $('#eunhang').on('click', function () { // 시흥id를 가진 체크박스가 클릭될때 이벤트 발생
+            if ($(this).is(':checked')) { // 이게 체크가 되어있을 경우
+                $('#pin_eunhang').show().addClass('rotate-jump'); // 시흥핀을 보여주고 rotate-jump 클래스를 추가해줌
+            } else { // 체크가 해제되어 있을 경우
+                $('#pin_eunhang').removeClass('rotate-jump').hide(); // 시흥핀을 사라지게 하고 클래스도 없애줌
+            }
+        });
+        $('#geumgwang').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_geumgwang').show().addClass('rotate-jump');
+            } else {
+                $('#pin_geumgwang').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#jungang').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_jungang').show().addClass('rotate-jump');
+            } else {
+                $('#pin_jungang').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#sangdaewon').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_sangdaewon').show().addClass('rotate-jump');
+            } else {
+                $('#pin_sangdaewon').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#hadaewon').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_hadaewon').show().addClass('rotate-jump');
+            } else {
+                $('#pin_hadaewon').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#sungnam').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_sungnam').show().addClass('rotate-jump');
+            } else {
+                $('#pin_sungnam').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#dochon').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_dochon').show().addClass('rotate-jump');
+            } else {
+                $('#pin_dochon').removeClass('rotate-jump').hide();
+            }
+        });
+
+        // 분당구 체크박스
+        $('#yatap').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_yatap').show().addClass('rotate-jump');
+            } else {
+                $('#pin_yatap').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#imae').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_imae').show().addClass('rotate-jump');
+            } else {
+                $('#pin_imae').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#sampyung').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_sampyung').show().addClass('rotate-jump');
+            } else {
+                $('#pin_sampyung').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#pangyo').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_pangyo').show().addClass('rotate-jump');
+            } else {
+                $('#pin_pangyo').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#unjung').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_unjung').show().addClass('rotate-jump');
+            } else {
+                $('#pin_unjung').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#baekhyun').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_baekhyun').show().addClass('rotate-jump');
+            } else {
+                $('#pin_baekhyun').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#geumgok').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_geumgok').show().addClass('rotate-jump');
+            } else {
+                $('#pin_geumgok').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#gumi').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_gumi').show().addClass('rotate-jump');
+            } else {
+                $('#pin_gumi').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#jungja').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_jungja').show().addClass('rotate-jump');
+            } else {
+                $('#pin_jungja').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#sunae').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_sunae').show().addClass('rotate-jump');
+            } else {
+                $('#pin_sunae').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#bundang').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_bundang2').show().addClass('rotate-jump');
+            } else {
+                $('#pin_bundang2').removeClass('rotate-jump').hide();
+            }
+        });
+        $('#seohyun').on('click', function () {
+            if ($(this).is(':checked')) {
+                $('#pin_seohyun').show().addClass('rotate-jump');
+            } else {
+                $('#pin_seohyun').removeClass('rotate-jump').hide();
+            }
+        });
+
+        // 여기는 모달 스크립트입니다.
+        $(".btn-confirm").click(function () {
+            modalClose(); //모달 닫기 함수 호출
+
+            //컨펌 이벤트 처리
+        });
+        $(".btn_modal-find").click(function () {
+            $("#modal-find").css("display", "flex").hide().fadeIn();
+            //팝업을 flex속성으로 바꿔준 후 hide()로 숨기고 다시 fadeIn()으로 효과
+            // Loop from 0 to findNumber
+            for (var i = 0; i < find_number; i++) {
+                // Create a new div element with the item class and number class
+                var newItem = document.createElement('div');
+                newItem.classList.add('item');
+                newItem.classList.add('randnum' + i);
+
+                // Set the inner HTML of the new div element to the desired structure
+                newItem.innerHTML = '<div class="image"><img src="../sangjun/foodImg/h1.jpg" class="pic"></div><div class="content"><p class="name"></p><p class="place"></p><hr><p class="userComment"></p><p class="score"></p><p class="merit"></p></div>';
+
+                // Append the new div element to the body-contentbox element
+                $(".body-contentbox").append(newItem);
+
+            }
+            // 중복없는 랜덤 이미지
+            for (var i = 0; i < foodImgs.length; i++) {
+                var tmp = 0;
+                var ran = Math.floor(Math.random() * foodImgs.length);
+                tmp = foodImgs[i];
+                foodImgs[i] = foodImgs[ran];
+                foodImgs[ran] = tmp;
+            }
+            
+            for (var i = 0; i < find_number; i++) {
+                var ranM = Math.floor(Math.random() * 15);
+                document.querySelector(".randnum" + i + " .pic").setAttribute('src',foodImgs[i]);
+                document.querySelector(".randnum" + i + " .name").innerText = storeName[ranM];
+                document.querySelector(".randnum" + i + " .place").innerText = place[ranM];
+                document.querySelector(".randnum" + i + " .userComment").innerText = userComment[ranM];
+                document.querySelector(".randnum" + i + " .score").innerText = score[ranM];
+                document.querySelector(".randnum" + i + " .merit").innerText = merit[ranM];
+            }
+
+        });
+        $("#close").click(function () {
+            modalClose(); //모달 닫기 함수 호출
+        });
+        function modalClose() {
+            $(".popup-wrap").fadeOut(); //페이드아웃 효과
+            $(".body-contentbox").empty(); // body-contentbox 내 모든 태그들 지우기
+        }
+        // 모달 스크립트 끝
+
+    });
+    // 아직도 맵 스크립트입니다. (다만 제이쿼리 밖)
+    function rewind() {
+        $("#Map_container img").animate({
+            width: '100%',
+            height: '100%',
+            opacity: '1'
+        }, 1000);
+        $("#sujungGu").parent().animate({
+            'left': '100px'
+        }, 1000);
+        $("#jungwonGu").parent().animate({
+            'left': '240px'
+        }, 1000);
+        $("#bundangGu").parent().animate({
+            'top': '158px',
+            'left': '97px'
+        }, 1000);
+        // Use promise() method to wait for all animations to finish
+        // promise() 메소드와 done(function()) 메소드를 함께 사용할 경우 이 함수가 모두 끝나기까지 기다린 후 다음을 실행한다.
+        $("#Map_container img").promise().done(function () {
+            $("#Map_container img").addClass('Map_hovo');
+        });
+        right_close(1000);
+        $("#Map input:checkbox").prop("checked", false);
+        $('#Map_pin img').hide();
+    }
+
+    function right_sujung(time) { $("#sujung2").slideDown(time); }
+    function right_jungwon(time) { $("#jungwon2").slideDown(time); }
+    function right_bundang(time) { $("#bundang2").slideDown(time); }
+    function right_close(time) { $(".Map_right").slideUp(time); }
+    //맵 스크립트 여기서 끝
+
+    // 네이버 검색
+    function SearchNaver() {
+        var anText = document.getElementById('main-search').value;
+        window.open('https://search.naver.com/search.naver?query=' + anText);
+    }
+
+</script>
+
+<body>
+    <header class="con">
+        <div class="header_header" id="header-header">
+            <div class="header_logo">
+                <li><a href="#"><span class="header__logoText">it-da</span></a></li>
+            </div>
+            <div class="header_menuItem">
+                <li class="header__menuItem"><a href="c:\git\\joon\\mall.html"><span class="header__MenuText">
+                            <center>it딜</center>
+                        </span></a></li>
+                <li class="header__menuItem"><a href="c:\git\\joon\\mall.html"><span class="header__MenuText">
+                            <center>맛집 리스트</center>
+                        </span></a></li>
+                <li class="header__menuItem"><a href="c:\git\\joon\\login_signup.html"><span class="header__MenuText">
+                            <center>login</center>
+                        </span></a></li>
+            </div>
+
+        </div>
+        <div class="main_header">
+            <div>
+                <p class="title">우리 동네 맛집 여기</p>
+                <h1 class="title">다 it-da</h1>
+                <fieldset class="main_search">
+                    <label class="search_word" for="main_search">
+                        <span class="icon">검색 :</span>
+                        <input id="main-search" class="HomeSearchInput" name="main-search" type="text" maxlength="50"
+                            placeholder="지역, 식당 또는 음식">
+                        <span class="clear_btn">CLEAR</span>
+                    </label>
+                    <input class="btn-search" type="submit" value="검색" onclick="SearchNaver()">
+                </fieldset>
+                <aside class="shortcut">
+                    <button class="btn_android" onclick="location.href='https://play.google.com/store/games'"><img
+                            src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/bzdlmp2toaxrdjqg.png"
+                            width="180px"></button>
+                    <button class="btn_ios" onclick="location.href='https://www.apple.com/kr/app-store/'"><img
+                            src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/f7eokfaszt4gpkh6.svg?v=1"
+                            width="180px"></button>
+                </aside>
+
+
+            </div>
+        </div>
+        <div class="mg">
+            <!-- 마진 주기 위한 div  -->
+            <div class="con6">
+                rolling 맛집 소개 영상
+                <embed class="map2" src="c:\git\\joohong\\swiper.html" width="1000px" height="450px" />
+            </div>
+            <div class="conn3">
+                <div class="con4">
+                    <h3>오늘의 추천</h3>
+                    <!-- <div id="sj"> -->
+                    <embed type="text/html" src="c:\git\\sangjun\\rndimg.html" width="250" height="300" />
+                    <!-- </div> -->
+                </div>
+                <div class="con7">
+                    <h3>특가 이벤트</h3>
+                    <embed type="text/html" src="c:\git\\sangjun\\rndMeal.html" width="250" height="300" />
+                </div>
+                <div class="con3">
+                    <h3>우리동네</h3>
+
+                    <!-- 여기부터 지도 <body>영역입니다 -->
+                    <div id="Map">
+                        <button onclick="rewind()" class="btn_Map_rewind">첫 화면</button>
+                        <div id="Map_container">
+                            <div id="sujung1"><img src="map\\sujungGu.png" id="sujungGu" class="Map_hovo"></div>
+                            <div id="jungwon1"><img src="map\\jungwonGu.png" id="jungwonGu" class="Map_hovo"></div>
+                            <div id="bundang1"><img src="map\\bundangGu.png" id="bundangGu" class="Map_hovo"></div>
+                        </div>
+                        <div id="Map_pin">
+                            <div id="pin_sujung">
+                                <img src="map\\pin.png" id="pin_shiheung">
+                                <img src="map\\pin.png" id="pin_godeung">
+                                <img src="map\\pin.png" id="pin_shinchon">
+                                <img src="map\\pin.png" id="pin_bokjung">
+                                <img src="map\\pin.png" id="pin_sujin">
+                                <img src="map\\pin.png" id="pin_taepyung">
+                                <img src="map\\pin.png" id="pin_shinheung">
+                                <img src="map\\pin.png" id="pin_sansung">
+                                <img src="map\\pin.png" id="pin_dandae">
+                                <img src="map\\pin.png" id="pin_yangzi">
+                            </div>
+                            <div id="pin_jungwon">
+                                <img src="map\\pin.png" id="pin_eunhang">
+                                <img src="map\\pin.png" id="pin_geumgwang">
+                                <img src="map\\pin.png" id="pin_jungang">
+                                <img src="map\\pin.png" id="pin_sangdaewon">
+                                <img src="map\\pin.png" id="pin_hadaewon">
+                                <img src="map\\pin.png" id="pin_sungnam">
+                                <img src="map\\pin.png" id="pin_dochon">
+                            </div>
+                            <div id="pin_bundang">
+                                <img src="map\\pin.png" id="pin_yatap">
+                                <img src="map\\pin.png" id="pin_imae">
+                                <img src="map\\pin.png" id="pin_sampyung">
+                                <img src="map\\pin.png" id="pin_pangyo">
+                                <img src="map\\pin.png" id="pin_unjung">
+                                <img src="map\\pin.png" id="pin_baekhyun">
+                                <img src="map\\pin.png" id="pin_geumgok">
+                                <img src="map\\pin.png" id="pin_gumi">
+                                <img src="map\\pin.png" id="pin_jungja">
+                                <img src="map\\pin.png" id="pin_sunae">
+                                <img src="map\\pin.png" id="pin_bundang2">
+                                <img src="map\\pin.png" id="pin_seohyun">
+                            </div>
+                        </div>
+
+                        <div id="sujung2" class="Map_right">
+                            <h3>
+                                <center>수정구</center>
+                            </h3>
+                            <ul>
+                                <li><input type="checkbox" id="shiheung">시흥동</li>
+                                <li><input type="checkbox" id="godeung">고등동</li>
+                                <li><input type="checkbox" id="shinchon">신촌동</li>
+                                <li><input type="checkbox" id="bokjung">복정동</li>
+                                <li><input type="checkbox" id="sujin">수진동</li>
+                                <li><input type="checkbox" id="taepyung">태평동</li>
+                                <li><input type="checkbox" id="shinheung">신흥동</li>
+                                <li><input type="checkbox" id="sansung">산성동</li>
+                                <li><input type="checkbox" id="dandae">단대동</li>
+                                <li><input type="checkbox" id="yangzi">양지동</li>
+                            </ul>
+                            <button class="btn_find btn_modal-find">이동네 맛집 찾기</button>
+                        </div>
+                        <div id="jungwon2" class="Map_right">
+                            <h3>
+                                <center>중원구</center>
+                            </h3>
+                            <ul>
+                                <li><input type="checkbox" id="eunhang">은행동</li>
+                                <li><input type="checkbox" id="geumgwang">금광동</li>
+                                <li><input type="checkbox" id="jungang">중앙동</li>
+                                <li><input type="checkbox" id="sangdaewon">상대원동</li>
+                                <li><input type="checkbox" id="hadaewon">하대원동</li>
+                                <li><input type="checkbox" id="sungnam">성남동</li>
+                                <li><input type="checkbox" id="dochon">도촌동</li>
+                            </ul>
+                            <button class="btn_find btn_modal-find">이동네 맛집 찾기</button>
+                        </div>
+                        <div id="bundang2" class="Map_right">
+                            <h3>
+                                <center>분당구</center>
+                            </h3>
+                            <ul>
+                                <li><input type="checkbox" id="yatap">야탑동</li>
+                                <li><input type="checkbox" id="imae">이매동</li>
+                                <li><input type="checkbox" id="sampyung">삼평동</li>
+                                <li><input type="checkbox" id="pangyo">판교동</li>
+                                <li><input type="checkbox" id="unjung">운중동</li>
+                                <li><input type="checkbox" id="baekhyun">백현동</li>
+                                <li><input type="checkbox" id="geumgok">금곡동</li>
+                                <li><input type="checkbox" id="gumi">구미동</li>
+                                <li><input type="checkbox" id="jungja">정자동</li>
+                                <li><input type="checkbox" id="sunae">수내동</li>
+                                <li><input type="checkbox" id="bundang">분당동</li>
+                                <li><input type="checkbox" id="seohyun">서현동</li>
+                            </ul>
+                            <button class="btn_find btn_modal-find">이동네 맛집 찾기</button>
+
+                        </div>
+                    </div>
+                    <!-- 지도영역 끝 -->
+
+                </div>
+            </div>
+            <div class="swipe_milkit"><embed type="text/html" src="c:\git\\Hyeonseung\\project.html" width="105%"
+                    height="100%" /></div>
+            <div class="swipe_youtube"><embed type="text/html" src="c:\git\\Hyeonseung\\ytb.html" width="105%"
+                    height="100%" /></div>
+        </div>
+
+        <!-- 여기서부터는 모달창 -->
+        <div id="Modal1">
+            <div class="container1">
+                <div class="popup-wrap" id="modal-find">
+                    <div class="popup">
+                        <div class="popup-head">
+                            <span class="head-title">맛집 소개</span>
+                        </div>
+                        <div class="popup-body">
+                            <div class="body-content">
+                                <div class="body-contentbox">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="popup-foot">
+                            <span class="pop-btn btn-confirm">확인</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 모달창 끝 -->
+
+    </header>
+
+
+
+    <footer>
+        <div class="notice_box">
+            <!-- <a href="#">공지사항 &nbsp;</a>
+            <a href="#">서비스 전체보기</a> -->
+        </div>
+        <div class="bottom_box">
+            <ul>
+                <li><a href="#">회사소개</a></li>
+                <li><a href="#">인재채용</a></li>
+                <li><a href="#">제휴제안</a></li>
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">개인정보처리방침</a></li>
+                <li><a href="#">고객센터</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script>
+        const checkboxes = document.querySelectorAll('#Map input[type="checkbox"]'); // document내에 모든 input type=checkbox -> checkboxes 배열
+        const btn1 = document.querySelector('#bundang2 button');
+        const btn2 = document.querySelector('#jungwon2 button');
+        const btn3 = document.querySelector('#sujung2 button');
+        var find_number = 0;
+
+        function updateButtonLabel() {
+            const count = Array.from(checkboxes).filter(function (cb) {
+                return cb.checked;
+            }).length;
+            find_number = count * 2
+            btn1.textContent = '이동네 맛집 찾기 (' + find_number + ')';
+            btn2.textContent = '이동네 맛집 찾기 (' + find_number + ')';
+            btn3.textContent = '이동네 맛집 찾기 (' + find_number + ')';
+            // find_number의 전역변수화
+            console.log(find_number);
+        }
+
+        function handleCheckboxChange() {
+            updateButtonLabel();
+        }
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].addEventListener('change', handleCheckboxChange);
+        }
+
+        updateButtonLabel();
+    </script>
+</body>
+
+</html>

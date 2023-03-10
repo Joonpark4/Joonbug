@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <!-- <script src="..\jquery-3.6.3.min.js"></script> -->
+    <style>
+    </style>
+</head>
+
+<body>
+    <script>
+        let count = 0;
+        var greeting;
+        // var greeting;
+        //     greeting = () => {
+        //     aa = document.getElementById("aaa");
+        //     aa.innerText=(`hi${count}`);
+        //     count++;    
+        // }
+
+        // function go() {
+        //     greeting = setInterval(() => {
+                // aa = document.getElementById("aaa");
+                // aa.innerText = (`hi${count}`);
+        //         count += 1;
+        //     }, 1);
+        // }
+
+        // let start = () => (
+        //     setInterval(greeting)
+        // )
+        // let stop = () => {
+        //     clearInterval(greeting);
+        //     console.log("멈춰");
+        // }
+        function start(){
+                greeting = setInterval(() =>{
+                aa = document.getElementById("aaa");
+                aa.innerText = (`hi${count}`);
+                count++;
+            },1)
+        }
+        function stop(){
+            clearInterval(greeting);
+        }
+    </script>
+    <button onclick="stop()">멈춰</button>
+    <button onclick="start()">진행시켜</button>
+    <p id="aaa"></p>
+</body>
+
+</html>
